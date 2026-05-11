@@ -26,7 +26,7 @@ export const PLANS = {
   },
   pro: {
     name: 'Pro',
-    price: 49,
+    price: 29,
     priceId: process.env.STRIPE_PRO_PRICE_ID!,
     features: [
       'Everything in Free',
@@ -46,7 +46,7 @@ export const PLANS = {
   },
   featured: {
     name: 'Featured',
-    price: 99,
+    price: 79,
     priceId: process.env.STRIPE_FEATURED_PRICE_ID!,
     features: [
       'Everything in Pro',
