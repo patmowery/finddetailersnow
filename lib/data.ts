@@ -6,7 +6,11 @@
 
 import { CITIES } from '@/data/cities';
 import { LISTINGS, REVIEWS } from '@/data/listings';
+import { REAL_LISTINGS } from '@/data/real-listings';
 import type { Listing, Review, City, ServiceType } from '@/types';
+
+// Merge sample listings with real scraped data
+const ALL_LISTINGS: Listing[] = [...LISTINGS, ...REAL_LISTINGS];
 
 // ── Listings ──────────────────────────────────────────────────────────────────
 
@@ -24,7 +28,7 @@ export async function getListingsByCity(
   const normalizedCity = city.replace(/-/g, ' ').toLowerCase();
   const normalizedState = stateCode.toUpperCase();
 
-  let results = LISTINGS.filter(
+  let results = ALL_LISTINGS.filter(
     (l) =>
       l.city.toLowerCase() === normalizedCity &&
       l.state_code === normalizedState
@@ -57,11 +61,11 @@ export async function getListingsByCity(
 }
 
 export async function getListingBySlug(slug: string): Promise<Listing | null> {
-  return LISTINGS.find((l) => l.slug === slug) ?? null;
+  return ALL_LISTINGS.find((l) => l.slug === slug) ?? null;
 }
 
 export async function getFeaturedListings(limit = 6): Promise<Listing[]> {
-  return LISTINGS.filter((l) => l.is_featured)
+  return ALL_LISTINGS.filter((l) => l.is_featured)
     .sort((a, b) => b.rating - a.rating)
     .slice(0, limit);
 }
@@ -69,7 +73,7 @@ export async function getFeaturedListings(limit = 6): Promise<Listing[]> {
 export async function getAllListingSlugs(): Promise<
   { slug: string; city: string; state_code: string }[]
 > {
-  return LISTINGS.map((l) => ({
+  return ALL_LISTINGS.map((l) => ({
     slug: l.slug,
     city: l.city,
     state_code: l.state_code,
@@ -136,7 +140,7 @@ export async function searchCities(query: string): Promise<City[]> {
 
 export async function searchListings(query: string): Promise<Listing[]> {
   const q = query.toLowerCase();
-  return LISTINGS.filter((l) =>
+  return ALL_LISTINGS.filter((l) =>
     l.business_name.toLowerCase().includes(q)
   )
     .sort((a, b) => b.rating - a.rating)
