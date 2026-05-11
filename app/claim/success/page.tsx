@@ -1,12 +1,13 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Claim Submitted | FindDetailersNow',
-  robots: { index: false, follow: false },
-};
+function SuccessContent() {
+  const searchParams = useSearchParams();
+  const already = searchParams.get('already');
 
-export default function ClaimSuccessPage() {
   return (
     <div className="max-w-xl mx-auto px-4 py-20 text-center">
       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -14,32 +15,54 @@ export default function ClaimSuccessPage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
       </div>
-      <h1 className="text-3xl font-extrabold text-gray-900 mb-3">Claim Submitted!</h1>
-      <p className="text-lg text-gray-600 mb-8">
-        We&apos;ll verify your ownership and activate your listing within 1-2 business days.
-        You&apos;ll receive a confirmation email once approved.
-      </p>
+      
+      {already ? (
+        <>
+          <h1 className="text-3xl font-extrabold text-gray-900 mb-3">Already Verified!</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Your business has already been verified. You&apos;re all set!
+          </p>
+        </>
+      ) : (
+        <>
+          <h1 className="text-3xl font-extrabold text-gray-900 mb-3">🎉 Business Verified!</h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Your business is now verified on FindDetailersNow.com. 
+            Customers can see your verified badge and trust your listing.
+          </p>
+        </>
+      )}
 
       <div className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8 text-left">
-        <h3 className="font-bold text-blue-900 mb-2">What happens next?</h3>
-        <ol className="space-y-2 text-sm text-blue-800">
+        <h3 className="font-bold text-blue-900 mb-2">What you get:</h3>
+        <ul className="space-y-2 text-sm text-blue-800">
           <li className="flex gap-2">
-            <span className="font-bold">1.</span>
-            We verify your business ownership (usually within 24 hours)
+            <span>✅</span>
+            <span>Verified badge on your listing</span>
           </li>
           <li className="flex gap-2">
-            <span className="font-bold">2.</span>
-            You get access to your dashboard to update your listing
+            <span>📍</span>
+            <span>Your business shows up in city search results</span>
           </li>
           <li className="flex gap-2">
-            <span className="font-bold">3.</span>
-            Your listing shows a &quot;Claimed&quot; badge for credibility
+            <span>📊</span>
+            <span>Basic analytics on listing views</span>
+          </li>
+        </ul>
+        
+        <hr className="my-4 border-blue-200" />
+        
+        <h3 className="font-bold text-blue-900 mb-2">Want more customers?</h3>
+        <ul className="space-y-2 text-sm text-blue-800">
+          <li className="flex gap-2">
+            <span>⭐</span>
+            <span><strong>Pro ($29/mo)</strong> — Priority placement, customer reviews, photo gallery, click-to-call</span>
           </li>
           <li className="flex gap-2">
-            <span className="font-bold">4.</span>
-            Optionally upgrade to Premium or Featured for more visibility
+            <span>🏆</span>
+            <span><strong>Featured ($79/mo)</strong> — Homepage spotlight, featured badge, top-of-city placement</span>
           </li>
-        </ol>
+        </ul>
       </div>
 
       <div className="flex gap-4 justify-center">
@@ -50,12 +73,29 @@ export default function ClaimSuccessPage() {
           Back to Home
         </Link>
         <Link
-          href="/pricing"
+          href="/dashboard"
           className="px-6 py-3 bg-[#ff6b35] hover:bg-orange-500 text-white font-semibold rounded-xl transition-colors"
         >
-          View Pricing Plans
+          View Dashboard →
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function ClaimSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-xl mx-auto px-4 py-20 text-center">
+        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h1 className="text-3xl font-extrabold text-gray-900 mb-3">Loading...</h1>
+      </div>
+    }>
+      <SuccessContent />
+    </Suspense>
   );
 }

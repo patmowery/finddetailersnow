@@ -58,15 +58,18 @@ export default function ClaimForm({ listing }: ClaimFormProps) {
   if (step === 'success') {
     return (
       <div className="text-center py-12">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
           </svg>
         </div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Claim Request Submitted!</h2>
-        <p className="text-gray-600 max-w-md mx-auto">
-          We&apos;ll verify your ownership and get back to you at <strong>{email}</strong> within
-          1–2 business days.
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Check Your Email! 📧</h2>
+        <p className="text-gray-600 max-w-md mx-auto mb-4">
+          We sent a verification link to <strong>{email}</strong>.
+          Click the link in the email to verify your business.
+        </p>
+        <p className="text-sm text-gray-500 max-w-md mx-auto">
+          The link expires in 48 hours. Check your spam folder if you don&apos;t see it.
         </p>
       </div>
     );
