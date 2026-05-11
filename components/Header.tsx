@@ -30,6 +30,9 @@ export default function Header() {
             <Link href="/about" className="hover:text-[#ff6b35] transition-colors">
               About
             </Link>
+            <Link href="/dashboard" className="hover:text-[#ff6b35] transition-colors">
+              Dashboard
+            </Link>
             <Link
               href="/claim"
               className="bg-[#ff6b35] hover:bg-orange-500 text-white px-4 py-2 rounded-lg transition-colors font-semibold"
@@ -68,6 +71,9 @@ export default function Header() {
             </Link>
             <Link href="/about" className="block px-2 py-2 hover:text-[#ff6b35] transition-colors">
               About
+            </Link>
+            <Link href="/dashboard" className="block px-2 py-2 hover:text-[#ff6b35] transition-colors">
+              Dashboard
             </Link>
             <Link
               href="/claim"
