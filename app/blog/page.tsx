@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { getAllBlogPosts } from '@/data/blog-posts';
 
 export const metadata: Metadata = {
   title: 'Auto Detailing Blog | FindDetailersNow',
@@ -8,62 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/blog' },
 };
 
-const POSTS = [
-  {
-    slug: 'ceramic-coating-vs-ppf',
-    title: 'Ceramic Coating vs. Paint Protection Film: Which Is Right for Your Car?',
-    excerpt:
-      "Both ceramic coating and PPF protect your car's paint, but they work differently. Here's a breakdown of the pros and cons of each option to help you decide.",
-    date: 'December 10, 2024',
-    category: 'Ceramic Coating',
-    readTime: '5 min read',
-  },
-  {
-    slug: 'how-often-detail-your-car',
-    title: 'How Often Should You Detail Your Car? A Complete Guide',
-    excerpt:
-      "There's no one-size-fits-all answer. Your detailing schedule depends on where you live, how you drive, and how much you care about your car's appearance.",
-    date: 'November 28, 2024',
-    category: 'Auto Detailing',
-    readTime: '4 min read',
-  },
-  {
-    slug: 'paint-correction-guide',
-    title: 'Paint Correction Explained: Levels, Costs, and What to Expect',
-    excerpt:
-      'Paint correction is one of the most transformative detailing services. Learn what it involves, how much it costs, and how to find a qualified professional.',
-    date: 'November 15, 2024',
-    category: 'Paint Correction',
-    readTime: '6 min read',
-  },
-  {
-    slug: 'mobile-detailing-pros-cons',
-    title: 'Mobile Detailing: Is It Worth It? (Pros, Cons, and What to Look For)',
-    excerpt:
-      'Mobile detailing brings professional results to your door. But is the convenience worth the cost? We break down what you need to know before booking.',
-    date: 'October 30, 2024',
-    category: 'Mobile Detailing',
-    readTime: '4 min read',
-  },
-  {
-    slug: 'interior-detailing-tips',
-    title: '10 Interior Detailing Tips the Pros Use (That You Can Do at Home)',
-    excerpt:
-      'Want a showroom-clean interior? These are the techniques professional detailers use — and most of them work great as DIY maintenance between full details.',
-    date: 'October 12, 2024',
-    category: 'Interior Detailing',
-    readTime: '7 min read',
-  },
-  {
-    slug: 'ppf-installation-cost',
-    title: 'How Much Does PPF Installation Cost in 2025?',
-    excerpt:
-      'Paint protection film prices vary widely depending on coverage, film brand, and installer. Here is what to expect and how to get the best value.',
-    date: 'September 25, 2024',
-    category: 'PPF',
-    readTime: '5 min read',
-  },
-];
+const POSTS = getAllBlogPosts();
 
 const CATEGORY_COLORS: Record<string, string> = {
   'Ceramic Coating': 'bg-purple-100 text-purple-800',
