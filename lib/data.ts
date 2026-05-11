@@ -102,7 +102,7 @@ export async function submitReview(_review: {
 
 export async function getCitiesByState(stateCode: string): Promise<City[]> {
   return CITIES.filter((c) => c.state_code === stateCode.toUpperCase()).sort(
-    (a, b) => (b.population ?? 0) - (a.population ?? 0)
+    (a, b) => a.name.localeCompare(b.name)
   );
 }
 

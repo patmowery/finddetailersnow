@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getCitiesByState } from '@/lib/data';
-import { getStateBySlug, buildCityUrl } from '@/lib/utils';
+import { getStateBySlug } from '@/lib/utils';
 import { US_STATES } from '@/types';
+import CitySearch from '@/components/CitySearch';
 
 interface Props {
   params: Promise<{ state: string }>;
@@ -59,32 +60,10 @@ export default async function StatePage({ params }: Props) {
           <p className="text-gray-400 text-lg">No cities listed yet. Check back soon!</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {cities.map((city) => (
-            <Link
-              key={city.id}
-              href={buildCityUrl(city.name, city.state_code)}
-              className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#1e3a5f] transition-all group"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="font-semibold text-gray-900 group-hover:text-[#1e3a5f] transition-colors">
-                    {city.name}
-                  </h2>
-                  <p className="text-sm text-gray-400 mt-0.5">{stateInfo.name}</p>
-                </div>
-                <svg
-                  className="w-5 h-5 text-gray-300 group-hover:text-[#ff6b35] transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <CitySearch
+          cities={cities.map((c) => ({ id: c.id, name: c.name, state_code: c.state_code }))}
+          stateName={stateInfo.name}
+        />
       )}
 
       {/* CTA */}

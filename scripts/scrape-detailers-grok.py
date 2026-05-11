@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Scrape auto detailing businesses using xAI Grok Responses API with web search.
-Uses the Responses API (/v1/responses) with web_search tool.
+Scrape auto detailing businesses using xAI Grok Chat Completions API.
+Uses grok-3-fast (no web search) for speed — gets business data from model knowledge.
 
 Usage:
-  python3 scripts/scrape-detailers-grok.py [--count N]
+  XAI_API_KEY=... python3 scripts/scrape-detailers-grok.py [--count N] [--start N]
 """
 
 import json
@@ -16,8 +16,8 @@ import urllib.error
 import re
 
 XAI_API_KEY = os.environ.get("XAI_API_KEY", "")
-API_URL = "https://api.x.ai/v1/responses"
-MODEL = "grok-4"
+API_URL = "https://api.x.ai/v1/chat/completions"
+MODEL = "grok-3-fast"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, "..", "data")
@@ -53,27 +53,22 @@ def load_already_scraped():
 
 def search_detailers(city, state, state_code):
     prompt = (
-        f'Search for auto detailing businesses in {city}, {state_code}. '
-        f'Find real businesses with their actual names, phone numbers, websites, and addresses.\n\n'
-        f'Return ONLY a JSON array with each business having:\n'
+        f'List 8 real auto detailing businesses in {city}, {state_code}.\n'
+        f'Return ONLY a JSON array with each having:\n'
         f'- "business_name": string\n'
         f'- "phone": string or null\n'
-        f'- "website": string or null\n'
-        f'- "address": string or null\n'
-        f'- "description": 1-2 sentence string\n'
-        f'- "services": array from ["detailing","ceramic_coating","paint_correction","ppf","interior","tinting","wash"]\n'
-        f'- "rating": number or null\n'
-        f'- "review_count": number or null\n\n'
-        f'Find at least 5 real businesses. Return ONLY the JSON array, no other text.'
+        f'- "website": string URL or null\n'
+        f'- "address": street address string or null\n'
+        f'- "description": 1 sentence about their services\n'
+        f'Only include REAL businesses you are confident actually exist.'
     )
 
     payload = {
         "model": MODEL,
-        "input": [
-            {"role": "system", "content": "You extract business data from web search. Return ONLY valid JSON arrays."},
+        "messages": [
+            {"role": "system", "content": "You are a business data extraction tool. Return ONLY valid JSON arrays. No markdown, no explanations, no extra text."},
             {"role": "user", "content": prompt},
         ],
-        "tools": [{"type": "web_search"}],
         "temperature": 0.1,
     }
 
@@ -87,19 +82,10 @@ def search_detailers(city, state, state_code):
     )
 
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=45) as resp:
             result = json.loads(resp.read())
 
-        # Extract text from Responses API
-        content = ""
-        for item in result.get("output", []):
-            if item.get("type") == "message":
-                for part in item.get("content", []):
-                    if part.get("type") == "output_text":
-                        content += part.get("text", "")
-
-        if not content:
-            return []
+        content = result["choices"][0]["message"]["content"]
 
         # Clean up response
         content = content.strip()
@@ -116,11 +102,15 @@ def search_detailers(city, state, state_code):
         if not isinstance(businesses, list):
             return []
 
-        # Tag each with city/state
+        # Tag each with city/state and generate slug
         for biz in businesses:
             biz["city"] = city
             biz["state"] = state
             biz["state_code"] = state_code
+            # Generate slug
+            name = biz.get("business_name", "")
+            slug = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+            biz["slug"] = slug
 
         return businesses
 
@@ -137,10 +127,23 @@ def search_detailers(city, state, state_code):
 
 
 def main():
-    count = 50
-    for i, arg in enumerate(sys.argv[1:], 1):
-        if arg == "--count" and i < len(sys.argv) - 1:
-            count = int(sys.argv[i + 1])
+    if not XAI_API_KEY:
+        print("Error: XAI_API_KEY environment variable not set", file=sys.stderr)
+        sys.exit(1)
+
+    count = 100
+    start = 0
+    args = sys.argv[1:]
+    i = 0
+    while i < len(args):
+        if args[i] == "--count" and i + 1 < len(args):
+            count = int(args[i + 1])
+            i += 2
+        elif args[i] == "--start" and i + 1 < len(args):
+            start = int(args[i + 1])
+            i += 2
+        else:
+            i += 1
 
     cities = load_cities()
     already_scraped = load_already_scraped()
@@ -151,7 +154,7 @@ def main():
     print(f"Total cities: {len(cities)}")
     print(f"Already scraped: {len(already_scraped)}")
     print(f"Remaining: {len(remaining)}")
-    print(f"Scraping {count} cities")
+    print(f"Scraping {count} cities starting at index {start}")
     print()
 
     # Load existing grok results
@@ -161,8 +164,9 @@ def main():
             all_businesses = json.load(f)
         print(f"Loaded {len(all_businesses)} existing from prior grok runs")
 
-    batch = remaining[:count]
+    batch = remaining[start:start + count]
     total_new = 0
+    errors = 0
 
     for i, city in enumerate(batch):
         name = city["name"]
@@ -177,15 +181,25 @@ def main():
             all_businesses.extend(businesses)
             total_new += len(businesses)
             print(f"✅ {len(businesses)} found (total: {len(all_businesses)})")
+            errors = 0
         else:
             print("❌ 0 found")
+            errors += 1
+            if errors >= 5:
+                print("\n⚠️ 5 consecutive errors — stopping.")
+                break
 
-        # Save after every city
-        with open(OUTPUT_FILE, "w") as f:
-            json.dump(all_businesses, f)
+        # Save after every 5 cities
+        if (i + 1) % 5 == 0:
+            with open(OUTPUT_FILE, "w") as f:
+                json.dump(all_businesses, f)
 
-        # Rate limit
-        time.sleep(3)
+        # Rate limit — 2 seconds between requests
+        time.sleep(2)
+
+    # Final save
+    with open(OUTPUT_FILE, "w") as f:
+        json.dump(all_businesses, f)
 
     print(f"\n{'='*50}")
     print(f"Done! {total_new} new businesses from {len(batch)} cities")
