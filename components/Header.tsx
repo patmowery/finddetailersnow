@@ -21,6 +21,9 @@ export default function Header() {
             <Link href="/states" className="hover:text-[#ff6b35] transition-colors">
               Browse States
             </Link>
+            <Link href="/pricing" className="hover:text-[#ff6b35] transition-colors">
+              Pricing
+            </Link>
             <Link href="/blog" className="hover:text-[#ff6b35] transition-colors">
               Blog
             </Link>
@@ -56,6 +59,9 @@ export default function Header() {
           <div className="md:hidden border-t border-[#2a4d7a] py-3 space-y-2">
             <Link href="/states" className="block px-2 py-2 hover:text-[#ff6b35] transition-colors">
               Browse States
+            </Link>
+            <Link href="/pricing" className="block px-2 py-2 hover:text-[#ff6b35] transition-colors">
+              Pricing
             </Link>
             <Link href="/blog" className="block px-2 py-2 hover:text-[#ff6b35] transition-colors">
               Blog
