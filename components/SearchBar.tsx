@@ -77,7 +77,7 @@ export default function SearchBar({ placeholder = 'City, State or Zip Code' }: {
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => results.length > 0 && setOpen(true)}
             placeholder={placeholder}
-            className="w-full pl-10 pr-4 py-3.5 text-base border border-gray-300 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent text-gray-900 placeholder-gray-400"
+            className="w-full pl-10 pr-4 py-3.5 text-base bg-white border border-gray-300 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:border-transparent text-gray-900 placeholder-gray-500"
             autoComplete="off"
           />
           {loading && (
