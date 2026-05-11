@@ -40,6 +40,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Site verification — replace placeholder values when available
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: {
+      'msvalidate.01': process.env.BING_SITE_VERIFICATION ? [process.env.BING_SITE_VERIFICATION] : [],
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
