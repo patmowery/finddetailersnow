@@ -16272,7 +16272,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-logan-s-auto-detailing-coating-ca',
-    business_name: 'Home - Logan\'s Auto Detailing & Coating',
+    business_name: "Home - Logan's Auto Detailing & Coating",
     slug: 'home-logan-s-auto-detailing-coating',
     phone: null,
     email: null,
@@ -16468,7 +16468,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-chicago-simon-s-shine-shop-il',
-    business_name: 'Ceramic Coating Chicago - Simon\'s Shine Shop',
+    business_name: "Ceramic Coating Chicago - Simon's Shine Shop",
     slug: 'ceramic-coating-chicago-simon-s-shine-shop',
     phone: null,
     email: null,
@@ -17224,7 +17224,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-best-car-detailing-philadelphia-magazine-s-best-of-philly-pa',
-    business_name: 'Best Car Detailing | Philadelphia Magazine\'s Best of Philly',
+    business_name: "Best Car Detailing | Philadelphia Magazine's Best of Philly",
     slug: 'best-car-detailing-philadelphia-magazine-s-best-of-philly',
     phone: null,
     email: null,
@@ -17476,7 +17476,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-san-antonio-ppf-tinting-ceramic-coatings-jay-s-detail-tx',
-    business_name: 'San Antonio PPF, Tinting, Ceramic Coatings | Jay\'s Detail',
+    business_name: "San Antonio PPF, Tinting, Ceramic Coatings | Jay's Detail",
     slug: 'san-antonio-ppf-tinting-ceramic-coatings-jay-s-detail',
     phone: null,
     email: null,
@@ -18232,7 +18232,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-austin-s-top-mobile-detailing-waxd-car-detailing-tx',
-    business_name: 'Austin\'s Top Mobile Detailing | WAXD Car Detailing',
+    business_name: "Austin's Top Mobile Detailing | WAXD Car Detailing",
     slug: 'austin-s-top-mobile-detailing-waxd-car-detailing',
     phone: '(512) 361-5948',
     email: null,
@@ -18260,7 +18260,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-pristine-auto-detailing-austin-s-premier-auto-spa-tx',
-    business_name: 'Pristine Auto Detailing | Austin\'s Premier Auto Spa',
+    business_name: "Pristine Auto Detailing | Austin's Premier Auto Spa",
     slug: 'pristine-auto-detailing-austin-s-premier-auto-spa',
     phone: null,
     email: null,
@@ -18764,7 +18764,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-jacksonville-s-best-car-detailing-services-panda-hub-fl',
-    business_name: 'Jacksonville\'s Best Car Detailing Services ⭐ | Panda Hub',
+    business_name: "Jacksonville's Best Car Detailing Services ⭐ | Panda Hub",
     slug: 'jacksonville-s-best-car-detailing-services-panda-hub',
     phone: null,
     email: null,
@@ -19156,7 +19156,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-fort-worth-tx-s-leader-in-full-car-detailing-services-tx',
-    business_name: 'Fort Worth, TX\'s Leader in Full car Detailing Services',
+    business_name: "Fort Worth, TX's Leader in Full car Detailing Services",
     slug: 'fort-worth-tx-s-leader-in-full-car-detailing-services',
     phone: null,
     email: null,
@@ -19520,7 +19520,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-sammy-s-auto-spa-oh',
-    business_name: 'Sammy\'s Auto Spa',
+    business_name: "Sammy's Auto Spa",
     slug: 'sammy-s-auto-spa',
     phone: '(614) 263-2728',
     email: null,
@@ -20276,7 +20276,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-paul-s-mobile-detailing-san-francisco-we-come-to-you-ca',
-    business_name: 'Paul\'s Mobile Detailing San Francisco | We Come To You',
+    business_name: "Paul's Mobile Detailing San Francisco | We Come To You",
     slug: 'paul-s-mobile-detailing-san-francisco-we-come-to-you',
     phone: null,
     email: null,
@@ -20500,7 +20500,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-kenny-s-auto-detailing-packages-pricing-wa',
-    business_name: 'Kenny\'s Auto Detailing Packages Pricing',
+    business_name: "Kenny's Auto Detailing Packages Pricing",
     slug: 'kenny-s-auto-detailing-packages-pricing',
     phone: null,
     email: null,
@@ -20556,7 +20556,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-seattle-auto-detailing-derek-s-auto-detail-since-2002-wa',
-    business_name: 'Seattle Auto Detailing | Derek\'s Auto Detail Since 2002',
+    business_name: "Seattle Auto Detailing | Derek's Auto Detail Since 2002",
     slug: 'seattle-auto-detailing-derek-s-auto-detail-since-2002',
     phone: null,
     email: null,
@@ -21396,7 +21396,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-washington-dc-auto-detailing-columbia-s-best-service-dc',
-    business_name: 'Washington DC Auto Detailing | Columbia\'s Best Service',
+    business_name: "Washington DC Auto Detailing | Columbia's Best Service",
     slug: 'washington-dc-auto-detailing-columbia-s-best-service',
     phone: null,
     email: null,
@@ -23468,7 +23468,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-expert-car-detailing-detroit-mi-nick-s-auto-detail-mi',
-    business_name: 'Expert Car Detailing Detroit, MI | Nick\'s Auto Detail',
+    business_name: "Expert Car Detailing Detroit, MI | Nick's Auto Detail",
     slug: 'expert-car-detailing-detroit-mi-nick-s-auto-detail',
     phone: null,
     email: null,
@@ -25736,7 +25736,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-fresno-car-detail-service-danny-s-spotless-touch-ca',
-    business_name: 'Fresno Car Detail Service | Danny\'s Spotless Touch',
+    business_name: "Fresno Car Detail Service | Danny's Spotless Touch",
     slug: 'fresno-car-detail-service-danny-s-spotless-touch',
     phone: null,
     email: null,
@@ -26156,7 +26156,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-auto-detailing-sacramento-toly-s-detailing-ca',
-    business_name: 'Auto Detailing Sacramento - Toly\'s Detailing',
+    business_name: "Auto Detailing Sacramento - Toly's Detailing",
     slug: 'auto-detailing-sacramento-toly-s-detailing',
     phone: null,
     email: null,
@@ -26604,7 +26604,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-kansas-city-s-best-ceramic-coating-vision-detail-mo',
-    business_name: 'Kansas City\'s Best Ceramic Coating — Vision Detail',
+    business_name: "Kansas City's Best Ceramic Coating — Vision Detail",
     slug: 'kansas-city-s-best-ceramic-coating-vision-detail',
     phone: null,
     email: null,
@@ -26772,7 +26772,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-daniel-s-detailing-mobile-auto-detailing-in-arizona-az',
-    business_name: 'Daniel\'s Detailing | Mobile Auto Detailing in Arizona',
+    business_name: "Daniel's Detailing | Mobile Auto Detailing in Arizona",
     slug: 'daniel-s-detailing-mobile-auto-detailing-in-arizona',
     phone: null,
     email: null,
@@ -27136,7 +27136,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-crum-s-mobile-wash-wax-auto-detailing-services-ga',
-    business_name: 'Crum\'s Mobile Wash & Wax - Auto Detailing Services',
+    business_name: "Crum's Mobile Wash & Wax - Auto Detailing Services",
     slug: 'crum-s-mobile-wash-wax-auto-detailing-services',
     phone: null,
     email: null,
@@ -27416,7 +27416,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-atlanta-ga-o-kelly-s-auto-detailing-ga',
-    business_name: 'Ceramic Coating | Atlanta, GA | O\'Kelly\'s Auto Detailing',
+    business_name: "Ceramic Coating | Atlanta, GA | O'Kelly's Auto Detailing",
     slug: 'ceramic-coating-atlanta-ga-o-kelly-s-auto-detailing',
     phone: null,
     email: null,
@@ -27612,7 +27612,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-sunshine-auto-detail-omaha-s-best-car-detailing-ne',
-    business_name: 'Sunshine Auto Detail – Omaha\'s Best Car Detailing',
+    business_name: "Sunshine Auto Detail – Omaha's Best Car Detailing",
     slug: 'sunshine-auto-detail-omaha-s-best-car-detailing',
     phone: null,
     email: null,
@@ -27640,7 +27640,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-detail-by-zman-omaha-s-premier-ceramic-coating-specialist-ne',
-    business_name: 'Detail by ZMan - Omaha\'s Premier Ceramic Coating Specialist',
+    business_name: "Detail by ZMan - Omaha's Premier Ceramic Coating Specialist",
     slug: 'detail-by-zman-omaha-s-premier-ceramic-coating-specialist',
     phone: null,
     email: null,
@@ -28284,7 +28284,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-auto-detailing-clean-z-s-mobile-detailing-raleigh-nc-nc',
-    business_name: 'Auto Detailing Clean Z\'s Mobile Detailing | Raleigh, NC',
+    business_name: "Auto Detailing Clean Z's Mobile Detailing | Raleigh, NC",
     slug: 'auto-detailing-clean-z-s-mobile-detailing-raleigh-nc',
     phone: null,
     email: null,
@@ -28424,7 +28424,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-raleigh-s-auto-detail-nc',
-    business_name: 'Raleigh\'s Auto Detail',
+    business_name: "Raleigh's Auto Detail",
     slug: 'raleigh-s-auto-detail',
     phone: null,
     email: null,
@@ -28592,7 +28592,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-johnson-s-detailing-raleigh-nc-nc',
-    business_name: 'Ceramic Coating - Johnson\'s Detailing - Raleigh, NC',
+    business_name: "Ceramic Coating - Johnson's Detailing - Raleigh, NC",
     slug: 'ceramic-coating-johnson-s-detailing-raleigh-nc',
     phone: null,
     email: null,
@@ -28928,7 +28928,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-detail-d-out-auto-detailing-va',
-    business_name: 'Detail\'d Out Auto Detailing',
+    business_name: "Detail'd Out Auto Detailing",
     slug: 'detail-d-out-auto-detailing',
     phone: null,
     email: null,
@@ -29348,7 +29348,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-miami-s-high-end-shop-for-detailing-coatings-ppf-tint-fl',
-    business_name: 'Miami\'s High End Shop For Detailing, Coatings, PPF & Tint',
+    business_name: "Miami's High End Shop For Detailing, Coatings, PPF & Tint",
     slug: 'miami-s-high-end-shop-for-detailing-coatings-ppf-tint',
     phone: null,
     email: null,
@@ -29404,7 +29404,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-miami-s-high-end-shop-for-detailing-coatings-ppf-fl',
-    business_name: 'Miami\'s High End Shop For Detailing, Coatings, PPF ...',
+    business_name: "Miami's High End Shop For Detailing, Coatings, PPF ...",
     slug: 'miami-s-high-end-shop-for-detailing-coatings-ppf',
     phone: null,
     email: null,
@@ -29432,7 +29432,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-miami-s-auto-detailing-fl',
-    business_name: 'Miami\'s Auto Detailing',
+    business_name: "Miami's Auto Detailing",
     slug: 'miami-s-auto-detailing',
     phone: null,
     email: null,
@@ -29460,7 +29460,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-hugh-s-detailing-automotive-paint-enhancement-miami-fl',
-    business_name: 'Hugh\'s Detailing | Automotive Paint Enhancement Miami',
+    business_name: "Hugh's Detailing | Automotive Paint Enhancement Miami",
     slug: 'hugh-s-detailing-automotive-paint-enhancement-miami',
     phone: null,
     email: null,
@@ -30328,7 +30328,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-best-car-detailing-in-tulsa-ok-red-beard-s-detail-shop-ok',
-    business_name: 'Best Car Detailing In Tulsa, OK: Red Beard\'s Detail Shop',
+    business_name: "Best Car Detailing In Tulsa, OK: Red Beard's Detail Shop",
     slug: 'best-car-detailing-in-tulsa-ok-red-beard-s-detail-shop',
     phone: null,
     email: null,
@@ -30636,7 +30636,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-auto-detailing-in-bakersfield-ca-isaac-s-auto-detailing-ca',
-    business_name: 'Auto Detailing in Bakersfield, CA | Isaac\'s Auto Detailing',
+    business_name: "Auto Detailing in Bakersfield, CA | Isaac's Auto Detailing",
     slug: 'auto-detailing-in-bakersfield-ca-isaac-s-auto-detailing',
     phone: null,
     email: null,
@@ -31028,7 +31028,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-parker-s-detail-llc-premium-auto-detailing-in-wichita-ks-ks',
-    business_name: 'Parker\'s Detail, LLC | Premium Auto Detailing in Wichita KS',
+    business_name: "Parker's Detail, LLC | Premium Auto Detailing in Wichita KS",
     slug: 'parker-s-detail-llc-premium-auto-detailing-in-wichita-ks',
     phone: null,
     email: null,
@@ -31056,7 +31056,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-top-auto-detailing-shop-in-wichita-ks-let-s-roll-coatings-ks',
-    business_name: 'Top Auto Detailing Shop in Wichita, KS | Let\'s Roll Coatings',
+    business_name: "Top Auto Detailing Shop in Wichita, KS | Let's Roll Coatings",
     slug: 'top-auto-detailing-shop-in-wichita-ks-let-s-roll-coatings',
     phone: '(316) 295-0787',
     email: null,
@@ -31140,7 +31140,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-joe-s-car-wash-home-ks',
-    business_name: 'Joe\'s Car Wash: Home',
+    business_name: "Joe's Car Wash: Home",
     slug: 'joe-s-car-wash-home',
     phone: null,
     email: null,
@@ -31168,7 +31168,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-dave-s-detail-ppf-installer-wichita-ks-ks',
-    business_name: 'Dave\'s Detail | PPF Installer | Wichita, KS',
+    business_name: "Dave's Detail | PPF Installer | Wichita, KS",
     slug: 'dave-s-detail-ppf-installer-wichita-ks',
     phone: null,
     email: null,
@@ -33772,7 +33772,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-jeff-s-car-wash-lexington-ky',
-    business_name: 'Jeff\'s Car Wash Lexington',
+    business_name: "Jeff's Car Wash Lexington",
     slug: 'jeff-s-car-wash-lexington',
     phone: null,
     email: null,
@@ -33968,7 +33968,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mobile-car-detailing-in-stockton-ca-alex-s-detailing-ca',
-    business_name: 'Mobile Car Detailing in Stockton, CA | Alex\'s Detailing',
+    business_name: "Mobile Car Detailing in Stockton, CA | Alex's Detailing",
     slug: 'mobile-car-detailing-in-stockton-ca-alex-s-detailing',
     phone: null,
     email: null,
@@ -34108,7 +34108,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-top-ceramic-coating-services-stockton-ca-alex-s-detailing-ca',
-    business_name: 'Top Ceramic Coating Services Stockton, CA | Alex\'s Detailing',
+    business_name: "Top Ceramic Coating Services Stockton, CA | Alex's Detailing",
     slug: 'top-ceramic-coating-services-stockton-ca-alex-s-detailing',
     phone: null,
     email: null,
@@ -35032,7 +35032,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-top-rated-mobile-car-detailing-in-riverside-javier-s-ca',
-    business_name: 'Top Rated Mobile Car Detailing in Riverside | Javier\'s',
+    business_name: "Top Rated Mobile Car Detailing in Riverside | Javier's",
     slug: 'top-rated-mobile-car-detailing-in-riverside-javier-s',
     phone: null,
     email: null,
@@ -35200,7 +35200,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-in-riverside-caleb-s-auto-detailing-ca',
-    business_name: 'Ceramic Coating in Riverside - Caleb\'s Auto Detailing',
+    business_name: "Ceramic Coating in Riverside - Caleb's Auto Detailing",
     slug: 'ceramic-coating-in-riverside-caleb-s-auto-detailing',
     phone: null,
     email: null,
@@ -35312,7 +35312,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-edgar-s-auto-detailing-appointments-nj',
-    business_name: 'Edgar\'s Auto Detailing: Appointments',
+    business_name: "Edgar's Auto Detailing: Appointments",
     slug: 'edgar-s-auto-detailing-appointments',
     phone: null,
     email: null,
@@ -35872,7 +35872,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-santa-ana-s-superior-mobile-car-wash-mobile-detailing-ca',
-    business_name: 'Santa Ana\'s Superior - Mobile Car Wash & Mobile Detailing',
+    business_name: "Santa Ana's Superior - Mobile Car Wash & Mobile Detailing",
     slug: 'santa-ana-s-superior-mobile-car-wash-mobile-detailing',
     phone: null,
     email: null,
@@ -35956,7 +35956,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-santa-ana-s-premier-vehicle-detailing-ppf-experts-ndg-ca',
-    business_name: 'Santa Ana\'s Premier Vehicle Detailing & PPF Experts | NDG',
+    business_name: "Santa Ana's Premier Vehicle Detailing & PPF Experts | NDG",
     slug: 'santa-ana-s-premier-vehicle-detailing-ppf-experts-ndg',
     phone: null,
     email: null,
@@ -39036,7 +39036,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-tommy-terrific-s-carwash-in-plano-eco-friendly-service-tx',
-    business_name: 'Tommy Terrific\'s Carwash in Plano | Eco-Friendly Service',
+    business_name: "Tommy Terrific's Carwash in Plano | Eco-Friendly Service",
     slug: 'tommy-terrific-s-carwash-in-plano-eco-friendly-service',
     phone: null,
     email: null,
@@ -39428,7 +39428,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-car-detailing-company-ray-s-auto-detailing-nc',
-    business_name: 'Car Detailing Company | Ray\'s Auto Detailing',
+    business_name: "Car Detailing Company | Ray's Auto Detailing",
     slug: 'car-detailing-company-ray-s-auto-detailing',
     phone: null,
     email: null,
@@ -39904,7 +39904,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-in-buffalo-ny-noah-s-mobile-detailing-ny',
-    business_name: 'Ceramic Coating in Buffalo, NY | Noah\'s Mobile Detailing',
+    business_name: "Ceramic Coating in Buffalo, NY | Noah's Mobile Detailing",
     slug: 'ceramic-coating-in-buffalo-ny-noah-s-mobile-detailing',
     phone: null,
     email: null,
@@ -40072,7 +40072,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mobile-auto-detailing-chandler-arizona-daniel-s-detailing-az',
-    business_name: 'Mobile Auto Detailing Chandler, Arizona | Daniel\'s Detailing',
+    business_name: "Mobile Auto Detailing Chandler, Arizona | Daniel's Detailing",
     slug: 'mobile-auto-detailing-chandler-arizona-daniel-s-detailing',
     phone: '(602) 613-4971',
     email: null,
@@ -40324,7 +40324,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-auto-detailing-services-derick-s-mobile-detailing-ca',
-    business_name: 'Auto Detailing Services | Derick\'s Mobile Detailing',
+    business_name: "Auto Detailing Services | Derick's Mobile Detailing",
     slug: 'auto-detailing-services-derick-s-mobile-detailing',
     phone: null,
     email: null,
@@ -40632,7 +40632,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-affordable-auto-detailing-s-flowpage-oh',
-    business_name: 'Affordable Auto Detailing\'s Flowpage',
+    business_name: "Affordable Auto Detailing's Flowpage",
     slug: 'affordable-auto-detailing-s-flowpage',
     phone: null,
     email: null,
@@ -41332,7 +41332,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-premium-ceramic-coatings-bob-s-auto-detailing-madison-wi-wi',
-    business_name: 'Premium Ceramic Coatings | Bob\'s Auto Detailing, Madison, WI',
+    business_name: "Premium Ceramic Coatings | Bob's Auto Detailing, Madison, WI",
     slug: 'premium-ceramic-coatings-bob-s-auto-detailing-madison-wi',
     phone: null,
     email: null,
@@ -42928,7 +42928,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-best-car-auto-detailing-in-lubbock-texas-devin-s-auto-spa-tx',
-    business_name: 'Best Car Auto Detailing in Lubbock Texas - Devin\'s Auto Spa',
+    business_name: "Best Car Auto Detailing in Lubbock Texas - Devin's Auto Spa",
     slug: 'best-car-auto-detailing-in-lubbock-texas-devin-s-auto-spa',
     phone: null,
     email: null,
@@ -43208,7 +43208,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-vr-auto-detailing-irving-s-premier-mobile-car-detailing-tx',
-    business_name: 'VR Auto Detailing - Irving\'s Premier Mobile Car Detailing',
+    business_name: "VR Auto Detailing - Irving's Premier Mobile Car Detailing",
     slug: 'vr-auto-detailing-irving-s-premier-mobile-car-detailing',
     phone: null,
     email: null,
@@ -43796,7 +43796,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-marco-s-car-wash-nc',
-    business_name: 'Home - Marco\'s Car Wash',
+    business_name: "Home - Marco's Car Wash",
     slug: 'home-marco-s-car-wash',
     phone: null,
     email: null,
@@ -44888,7 +44888,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-hart-s-luxury-detail-tx',
-    business_name: 'HOME - Hart\'s Luxury Detail',
+    business_name: "HOME - Hart's Luxury Detail",
     slug: 'home-hart-s-luxury-detail',
     phone: null,
     email: null,
@@ -45840,7 +45840,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-professional-auto-detailing-norfolk-va-sandman-s-detailing-va',
-    business_name: 'Professional Auto Detailing Norfolk VA - Sandman\'s Detailing',
+    business_name: "Professional Auto Detailing Norfolk VA - Sandman's Detailing",
     slug: 'professional-auto-detailing-norfolk-va-sandman-s-detailing',
     phone: null,
     email: null,
@@ -46008,7 +46008,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-car-coating-norfolk-sandman-s-auto-detailing-va',
-    business_name: 'Ceramic Car Coating Norfolk - Sandman\'s Auto Detailing',
+    business_name: "Ceramic Car Coating Norfolk - Sandman's Auto Detailing",
     slug: 'ceramic-car-coating-norfolk-sandman-s-auto-detailing',
     phone: null,
     email: null,
@@ -46120,7 +46120,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-boise-s-best-auto-detail-book-your-detailing-today-boise-id',
-    business_name: 'Boise\'s Best Auto Detail | Book Your Detailing Today - Boise',
+    business_name: "Boise's Best Auto Detail | Book Your Detailing Today - Boise",
     slug: 'boise-s-best-auto-detail-book-your-detailing-today-boise',
     phone: null,
     email: null,
@@ -46176,7 +46176,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-boise-s-best-auto-detail-boise-id-id',
-    business_name: 'Boise\'s Best Auto Detail - Boise, ID',
+    business_name: "Boise's Best Auto Detail - Boise, ID",
     slug: 'boise-s-best-auto-detail-boise-id',
     phone: '(208) 376-4366',
     email: null,
@@ -46288,7 +46288,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-indepth-detailing-boise-s-1-automotive-service-center-id',
-    business_name: 'InDepth Detailing – Boise\'s #1 Automotive Service Center',
+    business_name: "InDepth Detailing – Boise's #1 Automotive Service Center",
     slug: 'indepth-detailing-boise-s-1-automotive-service-center',
     phone: null,
     email: null,
@@ -46400,7 +46400,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-boise-s-1-vehicle-interior-detailing-ceramic-coating-id',
-    business_name: 'Boise\'s #1 Vehicle Interior Detailing & Ceramic Coating',
+    business_name: "Boise's #1 Vehicle Interior Detailing & Ceramic Coating",
     slug: 'boise-s-1-vehicle-interior-detailing-ceramic-coating',
     phone: null,
     email: null,
@@ -46512,7 +46512,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-sikka-s-mobile-auto-detailing-fremont-ca-ca',
-    business_name: 'Sikka\'s Mobile Auto Detailing - Fremont, CA',
+    business_name: "Sikka's Mobile Auto Detailing - Fremont, CA",
     slug: 'sikka-s-mobile-auto-detailing-fremont-ca',
     phone: '(928) 225-6224',
     email: null,
@@ -47352,7 +47352,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-jd-s-auto-detailing-la',
-    business_name: 'JD\'s Auto Detailing',
+    business_name: "JD's Auto Detailing",
     slug: 'jd-s-auto-detailing',
     phone: null,
     email: null,
@@ -47380,7 +47380,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mel-s-car-wash-detail-la',
-    business_name: 'Mel\'s Car Wash & Detail',
+    business_name: "Mel's Car Wash & Detail",
     slug: 'mel-s-car-wash-detail',
     phone: null,
     email: null,
@@ -47940,7 +47940,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ralda-s-details-llc-convenient-and-comprehensive-car-care-va',
-    business_name: 'Ralda\'s Details LLC | Convenient and Comprehensive Car Care',
+    business_name: "Ralda's Details LLC | Convenient and Comprehensive Car Care",
     slug: 'ralda-s-details-llc-convenient-and-comprehensive-car-care',
     phone: null,
     email: null,
@@ -49620,7 +49620,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-spring-valley-s-premier-mobile-auto-detailing-service-nv',
-    business_name: 'spring valley\'s premier mobile auto detailing service',
+    business_name: "spring valley's premier mobile auto detailing service",
     slug: 'spring-valley-s-premier-mobile-auto-detailing-service',
     phone: null,
     email: null,
@@ -50684,7 +50684,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-oakley-s-car-wash-express-full-service-yonkers-ny-ny',
-    business_name: 'Oakley\'s Car Wash | Express & Full-Service | Yonkers, NY',
+    business_name: "Oakley's Car Wash | Express & Full-Service | Yonkers, NY",
     slug: 'oakley-s-car-wash-express-full-service-yonkers-ny',
     phone: null,
     email: null,
@@ -54044,7 +54044,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-roberto-s-detailing-birmingham-al',
-    business_name: 'Roberto\'s Detailing Birmingham',
+    business_name: "Roberto's Detailing Birmingham",
     slug: 'roberto-s-detailing-birmingham',
     phone: null,
     email: null,
@@ -54072,7 +54072,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-eli-s-elite-mobile-detailing-al',
-    business_name: 'Home | Eli\'s Elite Mobile Detailing',
+    business_name: "Home | Eli's Elite Mobile Detailing",
     slug: 'home-eli-s-elite-mobile-detailing',
     phone: null,
     email: null,
@@ -54436,7 +54436,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mister-ben-s-auto-spa-express-al',
-    business_name: 'Mister Ben\'s Auto Spa Express',
+    business_name: "Mister Ben's Auto Spa Express",
     slug: 'mister-ben-s-auto-spa-express',
     phone: '(334) 676-1804',
     email: null,
@@ -55444,7 +55444,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-utah-s-favorite-detail-shop-salt-lake-detail-company-ut',
-    business_name: 'Utah\'s Favorite Detail Shop - Salt Lake Detail Company',
+    business_name: "Utah's Favorite Detail Shop - Salt Lake Detail Company",
     slug: 'utah-s-favorite-detail-shop-salt-lake-detail-company',
     phone: null,
     email: null,
@@ -55556,7 +55556,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-kendall-s-auto-detailing-ut',
-    business_name: 'Home - Kendall\'s Auto Detailing',
+    business_name: "Home - Kendall's Auto Detailing",
     slug: 'home-kendall-s-auto-detailing',
     phone: null,
     email: null,
@@ -55612,7 +55612,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-car-detailing-salt-lake-city-utah-s-1-mobile-detailer-ut',
-    business_name: 'Car Detailing Salt Lake City | Utah\'s #1 Mobile Detailer',
+    business_name: "Car Detailing Salt Lake City | Utah's #1 Mobile Detailer",
     slug: 'car-detailing-salt-lake-city-utah-s-1-mobile-detailer',
     phone: null,
     email: null,
@@ -56368,7 +56368,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-huntington-beach-s-auto-detailing-experts-ca',
-    business_name: 'Huntington Beach\'s Auto Detailing Experts.',
+    business_name: "Huntington Beach's Auto Detailing Experts.",
     slug: 'huntington-beach-s-auto-detailing-experts',
     phone: '(714) 829-5996',
     email: null,
@@ -57236,7 +57236,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-tally-s-panhandle-detail-fl',
-    business_name: 'Tally\'s Panhandle Detail',
+    business_name: "Tally's Panhandle Detail",
     slug: 'tally-s-panhandle-detail',
     phone: '(850) 228-9932',
     email: null,
@@ -59812,7 +59812,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mobile-car-detailing-vancouver-wa-tan-s-auto-detailing-wa',
-    business_name: 'Mobile Car Detailing Vancouver, WA - Tan\'s Auto Detailing',
+    business_name: "Mobile Car Detailing Vancouver, WA - Tan's Auto Detailing",
     slug: 'mobile-car-detailing-vancouver-wa-tan-s-auto-detailing',
     phone: null,
     email: null,
@@ -59840,7 +59840,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-vancouver-portland-s-premier-mobile-auto-detailing-service-wa',
-    business_name: 'Vancouver & Portland\'s Premier Mobile Auto Detailing Service',
+    business_name: "Vancouver & Portland's Premier Mobile Auto Detailing Service",
     slug: 'vancouver-portland-s-premier-mobile-auto-detailing-service',
     phone: null,
     email: null,
@@ -60904,7 +60904,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-timbo-s-automotive-detailing-mobile-al-surrounding-area-al',
-    business_name: 'Timbo\'s Automotive Detailing | Mobile, AL & Surrounding Area',
+    business_name: "Timbo's Automotive Detailing | Mobile, AL & Surrounding Area",
     slug: 'timbo-s-automotive-detailing-mobile-al-surrounding-area',
     phone: null,
     email: null,
@@ -60932,7 +60932,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-vehicle-detailing-mobile-al-bebo-s-carwash-al',
-    business_name: 'vehicle-detailing - Mobile, AL - Bebo\'s Carwash',
+    business_name: "vehicle-detailing - Mobile, AL - Bebo's Carwash",
     slug: 'vehicle-detailing-mobile-al-bebo-s-carwash',
     phone: null,
     email: null,
@@ -61632,7 +61632,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-just-in-detail-premium-auto-care-newport-news-va',
-    business_name: 'Just\' In Detail- Premium Auto Care, Newport News.',
+    business_name: "Just' In Detail- Premium Auto Care, Newport News.",
     slug: 'just-in-detail-premium-auto-care-newport-news',
     phone: null,
     email: null,
@@ -63144,7 +63144,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-stilley-s-auto-detailing-mobile-auto-detail-service-il',
-    business_name: 'Stilley\'s Auto Detailing | Mobile Auto Detail Service',
+    business_name: "Stilley's Auto Detailing | Mobile Auto Detail Service",
     slug: 'stilley-s-auto-detailing-mobile-auto-detail-service',
     phone: null,
     email: null,
@@ -63256,7 +63256,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-jamie-s-mobile-detailing-il',
-    business_name: 'Home - Jamie\'s Mobile Detailing',
+    business_name: "Home - Jamie's Mobile Detailing",
     slug: 'home-jamie-s-mobile-detailing',
     phone: '(630) 423-6409',
     email: null,
@@ -63424,7 +63424,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-adi-s-auto-detailing-auto-detailing-in-santa-rosa-ca-ca',
-    business_name: 'Adi\'s Auto Detailing | Auto Detailing in Santa Rosa, CA',
+    business_name: "Adi's Auto Detailing | Auto Detailing in Santa Rosa, CA",
     slug: 'adi-s-auto-detailing-auto-detailing-in-santa-rosa-ca',
     phone: null,
     email: null,
@@ -64040,7 +64040,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-eugene-or-kj-z-auto-detailing-and-tint-or',
-    business_name: 'Ceramic Coating | Eugene, OR | KJ\'z Auto Detailing and Tint',
+    business_name: "Ceramic Coating | Eugene, OR | KJ'z Auto Detailing and Tint",
     slug: 'ceramic-coating-eugene-or-kj-z-auto-detailing-and-tint',
     phone: null,
     email: null,
@@ -65804,7 +65804,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-home-shak-s-shine-auto-spa-ca',
-    business_name: 'Home - Shak\'s Shine Auto Spa',
+    business_name: "Home - Shak's Shine Auto Spa",
     slug: 'home-shak-s-shine-auto-spa',
     phone: null,
     email: null,
@@ -66672,7 +66672,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-mobile-detailing-pembroke-pines-ale-s-mobile-detailing-fl',
-    business_name: 'Mobile Detailing Pembroke Pines — Ale\'s Mobile Detailing',
+    business_name: "Mobile Detailing Pembroke Pines — Ale's Mobile Detailing",
     slug: 'mobile-detailing-pembroke-pines-ale-s-mobile-detailing',
     phone: null,
     email: null,
@@ -68828,7 +68828,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-your-need-for-detail-lalo-s-extreme-mobile-detailing-va',
-    business_name: 'Your Need For Detail | Lalo\'s Extreme Mobile Detailing',
+    business_name: "Your Need For Detail | Lalo's Extreme Mobile Detailing",
     slug: 'your-need-for-detail-lalo-s-extreme-mobile-detailing',
     phone: null,
     email: null,
@@ -70284,7 +70284,7 @@ export const REAL_LISTINGS: Listing[] = [
   },
   {
     id: 'real-ceramic-coating-arvada-ride-n-shine-automotive-co',
-    business_name: 'Ceramic Coating Arvada - Ride N\' Shine Automotive',
+    business_name: "Ceramic Coating Arvada - Ride N' Shine Automotive",
     slug: 'ceramic-coating-arvada-ride-n-shine-automotive',
     phone: null,
     email: null,
@@ -71012,7 +71012,7 @@ export const REAL_LISTINGS: Listing[] = [
     phone: '217-503-9500',
     website: 'https://www.precisiondetailing1.com/',
     address: '',
-    description: 'Precision Detailing was established in 2012 with a specialty in Automotive Detailing, and has since expanded to include Paint and Autobody, Window Tinting, and Truck Bedliners. The business has become one of Central Illinois\' most popular destinations for antique and vintage automotive restorations.',
+    description: "Precision Detailing was established in 2012 with a specialty in Automotive Detailing, and has since expanded to include Paint and Autobody, Window Tinting, and Truck Bedliners. The business has become one of Central Illinois' most popular destinations for antique and vintage automotive restorations.",
     services: ['detailing', 'paint_correction', 'tinting'],
     rating: null,
     review_count: null,
@@ -71108,7 +71108,7 @@ export const REAL_LISTINGS: Listing[] = [
     phone: null,
     website: 'https://thedetaillabhtx.com',
     address: '',
-    description: 'The Detail Lab Mobile Detailing provides convenient mobile car detailing services in League City, TX, bringing professional interior and exterior cleaning directly to customers\' doorsteps. They offer customizable packages including full details, paint correction, and ceramic coating to keep vehicles spotless and protected.',
+    description: "The Detail Lab Mobile Detailing provides convenient mobile car detailing services in League City, TX, bringing professional interior and exterior cleaning directly to customers' doorsteps. They offer customizable packages including full details, paint correction, and ceramic coating to keep vehicles spotless and protected.",
     services: ['detailing', 'ceramic_coating', 'paint_correction', 'interior', 'wash'],
     rating: null,
     review_count: null,
@@ -74975,7 +74975,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'crystal-clean-car-wash-detail',
     slug: 'crystal-clean-car-wash-detail',
     business_name: 'Crystal Clean Car Wash & Detail',
-    city: 'Lee\',
+    city: "Lee's Summit",
     state_code: 'MO',
     phone: '(573) 334-9274',
     website: null,
@@ -74991,7 +74991,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'elite-detailing',
     slug: 'elite-detailing',
     business_name: 'Elite Detailing',
-    city: 'Lee\',
+    city: "Lee's Summit",
     state_code: 'MO',
     phone: '(573) 803-4777',
     website: null,
@@ -75007,7 +75007,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'showroom-shine-detailing',
     slug: 'showroom-shine-detailing',
     business_name: 'Showroom Shine Detailing',
-    city: 'Lee\',
+    city: "Lee's Summit",
     state_code: 'MO',
     phone: '(573) 450-0777',
     website: null,
@@ -75023,7 +75023,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'cape-auto-spa',
     slug: 'cape-auto-spa',
     business_name: 'Cape Auto Spa',
-    city: 'Lee\',
+    city: "Lee's Summit",
     state_code: 'MO',
     phone: '(573) 335-7721',
     website: null,
@@ -75039,7 +75039,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'ultimate-auto-detail',
     slug: 'ultimate-auto-detail',
     business_name: 'Ultimate Auto Detail',
-    city: 'Lee\',
+    city: "Lee's Summit",
     state_code: 'MO',
     phone: '(573) 339-9339',
     website: null,
@@ -77712,7 +77712,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'ozark-mountain-detailing',
     slug: 'ozark-mountain-detailing',
     business_name: 'Ozark Mountain Detailing',
-    city: 'O\',
+    city: "O'Fallon",
     state_code: 'MO',
     phone: '(417) 350-2241',
     website: 'https://ozarkmountaindetailing.com/',
@@ -77728,7 +77728,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'springfield-auto-detail',
     slug: 'springfield-auto-detail',
     business_name: 'Springfield Auto Detail',
-    city: 'O\',
+    city: "O'Fallon",
     state_code: 'MO',
     phone: '(417) 831-1234',
     website: null,
@@ -79520,7 +79520,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'precision-detail-works',
     slug: 'precision-detail-works',
     business_name: 'Precision Detail Works',
-    city: 'Town \',
+    city: "Town 'n' Country",
     state_code: 'FL',
     phone: '(904) 555-3456',
     website: 'https://www.precisiondetailworks.com',
@@ -79536,7 +79536,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'palm-tree-auto-detail',
     slug: 'palm-tree-auto-detail',
     business_name: 'Palm Tree Auto Detail',
-    city: 'Town \',
+    city: "Town 'n' Country",
     state_code: 'FL',
     phone: '(561) 555-6789',
     website: null,
@@ -79552,7 +79552,7 @@ export const REAL_LISTINGS: Listing[] = [
     id: 'clear-view-detailing',
     slug: 'clear-view-detailing',
     business_name: 'Clear View Detailing',
-    city: 'Town \',
+    city: "Town 'n' Country",
     state_code: 'FL',
     phone: '(727) 555-4321',
     website: 'https://www.clearviewdetailing.com',
@@ -79743,7 +79743,7 @@ export const REAL_LISTINGS: Listing[] = [
   {
     id: 'mr-c-s-car-wash-detail-center',
     slug: 'mr-c-s-car-wash-detail-center',
-    business_name: 'Mr. C\'s Car Wash & Detail Center',
+    business_name: "Mr. C's Car Wash & Detail Center",
     city: 'Westland',
     state_code: 'MI',
     phone: '(734) 721-2900',
@@ -82751,13 +82751,13 @@ export const REAL_LISTINGS: Listing[] = [
   {
     id: 'buffalo-s-best-detailing',
     slug: 'buffalo-s-best-detailing',
-    business_name: 'Buffalo\'s Best Detailing',
+    business_name: "Buffalo's Best Detailing",
     city: 'Cheektowaga',
     state_code: 'NY',
     phone: '(716) 907-2277',
     website: null,
     address: '100 Thruway Plaza Dr, Cheektowaga, NY 14225',
-    description: 'Buffalo\'s Best Detailing specializes in interior and exterior car cleaning and polishing.',
+    description: "Buffalo's Best Detailing specializes in interior and exterior car cleaning and polishing.",
     services: ['detailing'],
     rating: null,
     review_count: null,
@@ -84901,7 +84901,7 @@ export const REAL_LISTINGS: Listing[] = [
     phone: '(334) 714-5566',
     website: null,
     address: '5566 Fortner St, Dothan, AL 36305',
-    description: 'Delivers mobile detailing services directly to customers\' locations.',
+    description: "Delivers mobile detailing services directly to customers' locations.",
     services: ['detailing'],
     rating: null,
     review_count: null,
