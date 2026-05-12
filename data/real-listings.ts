@@ -70954,7 +70954,6 @@ export const REAL_LISTINGS: Listing[] = [
     created_at: '2026-05-11T00:00:00Z',
     updated_at: '2026-05-11T00:00:00Z',
   },
-,
   {
     id: 'recon-techs-springfield',
     slug: 'recon-techs-springfield',
@@ -76842,8 +76841,7 @@ export const REAL_LISTINGS: Listing[] = [
     review_count: null,
     claimed: false,
     tier: 'free',
-  }
-,
+  },
   {
     id: 'deltona-auto-detailing',
     slug: 'deltona-auto-detailing',
