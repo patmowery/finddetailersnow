@@ -92,6 +92,7 @@ export async function GET(req: NextRequest) {
     console.log(`[VERIFY] ✅ Claim verified: ${verification.email} for "${verification.business_name}"`);
 
     // Get listing_id for the upgrade flow
+    // Check claim first, then fall back to listing_id_static on the token
     let listingId = '';
     if (verification.claim_id) {
       const { data: claim } = await supabase
@@ -100,6 +101,10 @@ export async function GET(req: NextRequest) {
         .eq('id', verification.claim_id)
         .single();
       if (claim?.listing_id) listingId = claim.listing_id;
+    }
+    // Fallback: use listing_id_static from the verification token (for static listings)
+    if (!listingId && verification.listing_id_static) {
+      listingId = verification.listing_id_static;
     }
 
     const successUrl = new URL('/claim/success', req.url);

@@ -63,12 +63,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Insert claim into Supabase
+    // Always store listing_id — even for static listings not yet in Supabase
     let claimId: string | null = null;
     try {
       const { data: claim, error } = await supabase
         .from('claims')
         .insert({
-          listing_id: listing ? listing_id : null,
+          listing_id: listing_id,
           user_email,
           status: 'pending',
         })
