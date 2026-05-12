@@ -1,12 +1,20 @@
-import type { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Payment Successful',
-  description: 'Your subscription is active. Welcome to FindDetailersNow!',
-};
+function CheckoutSuccessContent() {
+  const searchParams = useSearchParams();
+  const listingId = searchParams.get('listing') || '';
+  const sessionId = searchParams.get('session_id') || '';
+  // Email comes from the Stripe success redirect or from the claim flow
+  const email = searchParams.get('email') || '';
 
-export default function CheckoutSuccessPage() {
+  const profileLink = listingId
+    ? `/dashboard/profile?listing=${listingId}&email=${encodeURIComponent(email)}`
+    : '/dashboard';
+
   return (
     <div className="min-h-[60vh] flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center">
@@ -36,12 +44,21 @@ export default function CheckoutSuccessPage() {
             you&apos;ll start seeing increased visibility right away.
           </p>
 
+          <div className="bg-blue-50 rounded-xl p-4 mb-6 text-left text-sm text-blue-800">
+            <p className="font-semibold mb-2">What happens next:</p>
+            <ul className="space-y-1">
+              <li>✅ Your listing is upgraded immediately</li>
+              <li>📝 Complete your profile to maximize visibility</li>
+              <li>📊 You&apos;ll receive monthly performance reports</li>
+            </ul>
+          </div>
+
           <div className="space-y-3">
             <Link
-              href="/claim"
+              href={profileLink}
               className="block w-full bg-[#ff6b35] hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-xl transition-all"
             >
-              Complete Your Profile
+              Complete Your Profile →
             </Link>
             <Link
               href="/"
@@ -53,5 +70,23 @@ export default function CheckoutSuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-[60vh] flex items-center justify-center px-4">
+          <div className="max-w-md w-full text-center">
+            <div className="bg-white rounded-2xl shadow-lg p-10 border border-gray-100">
+              <h1 className="text-3xl font-bold text-[#1e3a5f]">Loading...</h1>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <CheckoutSuccessContent />
+    </Suspense>
   );
 }

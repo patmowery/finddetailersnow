@@ -68,18 +68,24 @@ function SuccessContent() {
         </ul>
       </div>
 
-      <div className="flex gap-4 justify-center">
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link
-          href="/"
-          className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl transition-colors"
+          href={listingId ? `/dashboard/profile?listing=${listingId}&email=${encodeURIComponent(email)}` : '/dashboard'}
+          className="px-6 py-3 bg-[#1e3a5f] hover:bg-[#2a4d7a] text-white font-semibold rounded-xl transition-colors text-center"
         >
-          Back to Home
+          Complete Your Profile →
         </Link>
         <Link
           href={`/pricing${upgradeParams}`}
-          className="px-6 py-3 bg-[#ff6b35] hover:bg-orange-500 text-white font-semibold rounded-xl transition-colors"
+          className="px-6 py-3 bg-[#ff6b35] hover:bg-orange-500 text-white font-semibold rounded-xl transition-colors text-center"
         >
-          Upgrade Your Listing →
+          Upgrade Your Listing ⚡
+        </Link>
+        <Link
+          href="/"
+          className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl transition-colors text-center"
+        >
+          Back to Home
         </Link>
       </div>
     </div>

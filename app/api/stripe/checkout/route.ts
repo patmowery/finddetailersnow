@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
         },
       ],
       customer_email: email,
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&listing=${listingId}`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&listing=${listingId}&email=${encodeURIComponent(email)}`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL}/checkout/cancel`,
       metadata: {
         source: 'finddetailersnow',
