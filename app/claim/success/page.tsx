@@ -7,6 +7,9 @@ import { Suspense } from 'react';
 function SuccessContent() {
   const searchParams = useSearchParams();
   const already = searchParams.get('already');
+  const listingId = searchParams.get('listing') || '';
+  const email = searchParams.get('email') || '';
+  const upgradeParams = listingId ? `?listing=${listingId}&email=${encodeURIComponent(email)}` : '';
 
   return (
     <div className="max-w-xl mx-auto px-4 py-20 text-center">
@@ -73,10 +76,10 @@ function SuccessContent() {
           Back to Home
         </Link>
         <Link
-          href="/dashboard"
+          href={`/pricing${upgradeParams}`}
           className="px-6 py-3 bg-[#ff6b35] hover:bg-orange-500 text-white font-semibold rounded-xl transition-colors"
         >
-          View Dashboard →
+          Upgrade Your Listing →
         </Link>
       </div>
     </div>

@@ -1,8 +1,70 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
+import { supabaseAdmin } from '@/lib/supabase';
 import Stripe from 'stripe';
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+async function updateClaimTier(
+  listingId: string,
+  tier: string,
+  subscriptionId?: string,
+  customerId?: string
+) {
+  // Update status to include tier (works with existing schema)
+  const status = tier === 'free' ? 'approved' : `approved_${tier}`;
+
+  const { error: statusError } = await supabaseAdmin
+    .from('claims')
+    .update({ status })
+    .eq('listing_id', listingId);
+
+  if (statusError) {
+    console.error('Error updating claim status:', statusError);
+  }
+
+  // Try updating tier/stripe columns (works after migration runs)
+  try {
+    const updateData: Record<string, string | null> = { tier };
+    if (subscriptionId !== undefined)
+      updateData.stripe_subscription_id = subscriptionId || null;
+    if (customerId !== undefined)
+      updateData.stripe_customer_id = customerId || null;
+    if (tier !== 'free') updateData.upgraded_at = new Date().toISOString();
+
+    await supabaseAdmin
+      .from('claims')
+      .update(updateData)
+      .eq('listing_id', listingId);
+  } catch {
+    // Columns may not exist yet — status field is the fallback
+  }
+}
+
+async function recordSubscription(
+  email: string,
+  listingId: string,
+  tier: string,
+  subscriptionId?: string,
+  customerId?: string
+) {
+  try {
+    await supabaseAdmin.from('business_users').upsert(
+      {
+        email,
+        listing_id: listingId,
+        tier,
+        stripe_customer_id: customerId || null,
+        stripe_subscription_id: subscriptionId || null,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: 'email,listing_id' }
+    );
+  } catch {
+    // business_users columns may not have stripe fields yet — skip gracefully
+    console.log('business_users upsert skipped (migration pending)');
+  }
+}
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -22,40 +84,94 @@ export async function POST(req: NextRequest) {
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     console.error('Webhook signature verification failed:', message);
-    return NextResponse.json({ error: `Webhook Error: ${message}` }, { status: 400 });
+    return NextResponse.json(
+      { error: `Webhook Error: ${message}` },
+      { status: 400 }
+    );
   }
 
   try {
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object as Stripe.Checkout.Session;
-        console.log('✅ Checkout completed:', session.id);
-        console.log('Customer:', session.customer_email);
-        console.log('Subscription:', session.subscription);
-        // TODO: Update listing tier in database
-        // TODO: Send welcome email
+        const listingId = session.metadata?.listing_id;
+        const tier = session.metadata?.tier || 'pro';
+        const email = session.customer_email;
+        const subscriptionId =
+          typeof session.subscription === 'string'
+            ? session.subscription
+            : session.subscription?.id;
+        const customerId =
+          typeof session.customer === 'string'
+            ? session.customer
+            : session.customer?.id;
+
+        console.log(
+          `✅ Checkout completed: listing=${listingId}, tier=${tier}, email=${email}`
+        );
+
+        if (listingId) {
+          await updateClaimTier(listingId, tier, subscriptionId, customerId);
+
+          if (email) {
+            await recordSubscription(
+              email,
+              listingId,
+              tier,
+              subscriptionId,
+              customerId
+            );
+          }
+        }
         break;
       }
 
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription;
-        console.log('📝 Subscription updated:', subscription.id);
-        console.log('Status:', subscription.status);
-        // TODO: Update listing tier based on new plan
+        const status = subscription.status;
+        console.log(
+          `📝 Subscription updated: ${subscription.id}, status=${status}`
+        );
+
+        if (status === 'past_due' || status === 'unpaid') {
+          // Find the claim by subscription ID in status field or stripe column
+          const { data: claims } = await supabaseAdmin
+            .from('claims')
+            .select('listing_id')
+            .or(
+              `status.like.%${subscription.id}%,stripe_subscription_id.eq.${subscription.id}`
+            );
+
+          if (claims?.length) {
+            for (const claim of claims) {
+              await updateClaimTier(claim.listing_id, 'free');
+            }
+          }
+        }
         break;
       }
 
       case 'customer.subscription.deleted': {
         const subscription = event.data.object as Stripe.Subscription;
-        console.log('❌ Subscription cancelled:', subscription.id);
-        // TODO: Downgrade listing to free tier
+        console.log(`❌ Subscription cancelled: ${subscription.id}`);
+
+        // Try to find by stripe_subscription_id column first
+        const { data: claims } = await supabaseAdmin
+          .from('claims')
+          .select('listing_id')
+          .or(`stripe_subscription_id.eq.${subscription.id}`);
+
+        if (claims?.length) {
+          for (const claim of claims) {
+            await updateClaimTier(claim.listing_id, 'free');
+          }
+        }
         break;
       }
 
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice;
-        console.log('⚠️ Payment failed:', invoice.id);
-        // TODO: Send payment failure notification
+        console.log(`⚠️ Payment failed: ${invoice.id}`);
         break;
       }
 
@@ -64,7 +180,10 @@ export async function POST(req: NextRequest) {
     }
   } catch (error) {
     console.error('Error processing webhook:', error);
-    return NextResponse.json({ error: 'Webhook processing failed' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Webhook processing failed' },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json({ received: true });

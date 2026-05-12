@@ -3,11 +3,27 @@ import { stripe } from '@/lib/stripe';
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId, email } = await req.json();
+    const { priceId, email, listingId, businessName } = await req.json();
 
     if (!priceId) {
       return NextResponse.json({ error: 'Price ID is required' }, { status: 400 });
     }
+
+    if (!listingId) {
+      return NextResponse.json({ error: 'Listing ID is required' }, { status: 400 });
+    }
+
+    if (!email) {
+      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+    }
+
+    // Determine tier from price ID
+    const tier =
+      priceId === process.env.STRIPE_PRO_PRICE_ID
+        ? 'pro'
+        : priceId === process.env.STRIPE_FEATURED_PRICE_ID
+          ? 'featured'
+          : 'unknown';
 
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
@@ -18,11 +34,14 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      ...(email ? { customer_email: email } : {}),
-      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/checkout/cancel`,
+      customer_email: email,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?session_id={CHECKOUT_SESSION_ID}&listing=${listingId}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_BASE_URL}/checkout/cancel`,
       metadata: {
         source: 'finddetailersnow',
+        listing_id: listingId,
+        business_name: businessName || '',
+        tier,
       },
     });
 

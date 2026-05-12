@@ -10,6 +10,8 @@ interface PricingCardProps {
   notIncluded: readonly string[];
   highlighted?: boolean;
   badge?: string;
+  listingId?: string;
+  email?: string;
 }
 
 export default function PricingCard({
@@ -20,18 +22,34 @@ export default function PricingCard({
   notIncluded,
   highlighted = false,
   badge,
+  listingId = '',
+  email = '',
 }: PricingCardProps) {
   const [loading, setLoading] = useState(false);
 
   const handleSubscribe = async () => {
     if (!priceId) return;
+
+    // If no listing ID, prompt user to claim first
+    if (!listingId) {
+      if (confirm('You need to claim your business first before upgrading. Go to claim page?')) {
+        window.location.href = '/claim';
+      }
+      return;
+    }
+
     setLoading(true);
 
     try {
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId }),
+        body: JSON.stringify({
+          priceId,
+          email: email || undefined,
+          listingId,
+          businessName: '',
+        }),
       });
 
       const data = await res.json();
@@ -39,7 +57,7 @@ export default function PricingCard({
       if (data.url) {
         window.location.href = data.url;
       } else {
-        alert('Something went wrong. Please try again.');
+        alert(data.error || 'Something went wrong. Please try again.');
       }
     } catch {
       alert('Something went wrong. Please try again.');

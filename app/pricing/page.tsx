@@ -1,14 +1,16 @@
-import type { Metadata } from 'next';
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+import Link from 'next/link';
 import PricingCard from '@/components/PricingCard';
 import { PLANS } from '@/lib/stripe';
 
-export const metadata: Metadata = {
-  title: 'Pricing – Grow Your Detailing Business',
-  description:
-    'Choose the right plan to get more customers. Free listing, Pro visibility, or Featured placement on FindDetailersNow.',
-};
+function PricingContent() {
+  const searchParams = useSearchParams();
+  const listingId = searchParams.get('listing') || '';
+  const email = searchParams.get('email') || '';
 
-export default function PricingPage() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
       {/* Hero */}
@@ -31,6 +33,8 @@ export default function PricingPage() {
             priceId={PLANS.free.priceId}
             features={PLANS.free.features}
             notIncluded={PLANS.free.notIncluded}
+            listingId={listingId}
+            email={email}
           />
           <PricingCard
             name={PLANS.pro.name}
@@ -40,6 +44,8 @@ export default function PricingPage() {
             notIncluded={PLANS.pro.notIncluded}
             highlighted
             badge="Most Popular"
+            listingId={listingId}
+            email={email}
           />
           <PricingCard
             name={PLANS.featured.name}
@@ -47,6 +53,8 @@ export default function PricingPage() {
             priceId={PLANS.featured.priceId}
             features={PLANS.featured.features}
             notIncluded={PLANS.featured.notIncluded}
+            listingId={listingId}
+            email={email}
           />
         </div>
       </section>
@@ -109,14 +117,28 @@ export default function PricingPage() {
           <p className="text-lg text-gray-300 mb-8">
             Join hundreds of detailing businesses already growing with FindDetailersNow.
           </p>
-          <a
+          <Link
             href="/claim"
             className="inline-block bg-[#ff6b35] hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all shadow-lg hover:shadow-xl"
           >
             List Your Business Now — It&apos;s Free
-          </a>
+          </Link>
         </div>
       </section>
     </div>
+  );
+}
+
+export default function PricingPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-7xl mx-auto px-4 py-20 text-center">
+          <h1 className="text-4xl font-extrabold text-[#1e3a5f]">Loading...</h1>
+        </div>
+      }
+    >
+      <PricingContent />
+    </Suspense>
   );
 }

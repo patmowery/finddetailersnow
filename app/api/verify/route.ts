@@ -91,7 +91,21 @@ export async function GET(req: NextRequest) {
 
     console.log(`[VERIFY] ✅ Claim verified: ${verification.email} for "${verification.business_name}"`);
 
-    return NextResponse.redirect(new URL('/claim/success', req.url));
+    // Get listing_id for the upgrade flow
+    let listingId = '';
+    if (verification.claim_id) {
+      const { data: claim } = await supabase
+        .from('claims')
+        .select('listing_id')
+        .eq('id', verification.claim_id)
+        .single();
+      if (claim?.listing_id) listingId = claim.listing_id;
+    }
+
+    const successUrl = new URL('/claim/success', req.url);
+    if (listingId) successUrl.searchParams.set('listing', listingId);
+    if (verification.email) successUrl.searchParams.set('email', encodeURIComponent(verification.email));
+    return NextResponse.redirect(successUrl);
   } catch (err) {
     console.error('[VERIFY] Error:', err);
     return NextResponse.redirect(new URL('/claim/error?reason=server_error', req.url));
