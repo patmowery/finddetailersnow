@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import PricingCard from '@/components/PricingCard';
-import { PLANS } from '@/lib/stripe';
+import { PLANS } from '@/lib/plans';
 
 function PricingContent() {
   const searchParams = useSearchParams();

@@ -1,0 +1,62 @@
+/**
+ * Plan definitions — safe for both client and server.
+ * Price IDs use NEXT_PUBLIC_ env vars so they're available client-side.
+ */
+export const PLANS = {
+  free: {
+    name: 'Free',
+    price: 0,
+    priceId: null,
+    features: [
+      'Basic listing with business name & address',
+      'Appear in city search results',
+      'Business hours & contact info',
+      'Up to 3 service categories',
+    ],
+    notIncluded: [
+      'Priority placement in results',
+      'Verified badge',
+      'Photo gallery',
+      'Lead notifications',
+      'Premium profile page',
+      'Featured placement',
+    ],
+  },
+  pro: {
+    name: 'Pro',
+    price: 29,
+    priceId: process.env.NEXT_PUBLIC_STRIPE_PRO_PRICE_ID || null,
+    features: [
+      'Everything in Free',
+      'Priority placement in search results',
+      'Verified business badge ✓',
+      'Photo gallery (up to 20 photos)',
+      'Instant lead notifications via email',
+      'Customer review highlights',
+      'Up to 10 service categories',
+      'Direct website link',
+    ],
+    notIncluded: [
+      'Top-of-page featured placement',
+      'Featured badge',
+      'Priority lead routing',
+    ],
+  },
+  featured: {
+    name: 'Featured',
+    price: 79,
+    priceId: process.env.NEXT_PUBLIC_STRIPE_FEATURED_PRICE_ID || null,
+    features: [
+      'Everything in Pro',
+      'Top-of-page featured placement',
+      '⭐ Featured business badge',
+      'Premium profile with full branding',
+      'Priority lead routing',
+      'Unlimited service categories',
+      'Competitor insights dashboard',
+      'Monthly performance report',
+      'Dedicated support',
+    ],
+    notIncluded: [],
+  },
+} as const;
