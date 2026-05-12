@@ -20,12 +20,13 @@ export async function GET(req: NextRequest) {
   }
 
   // Verify this email has an approved claim for this listing
+  // Status can be 'approved', 'approved_pro', 'approved_featured', etc.
   const { data: claim } = await supabase
     .from('claims')
     .select('*')
     .eq('listing_id', listingId)
     .eq('user_email', decodeURIComponent(email))
-    .eq('status', 'approved')
+    .like('status', 'approved%')
     .single();
 
   if (!claim) {
@@ -77,13 +78,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing listing ID or email' }, { status: 400 });
     }
 
-    // Verify approved claim
+    // Verify approved claim (status: approved, approved_pro, approved_featured)
     const { data: claim } = await supabase
       .from('claims')
       .select('id, tier')
       .eq('listing_id', listingId)
       .eq('user_email', email)
-      .eq('status', 'approved')
+      .like('status', 'approved%')
       .single();
 
     if (!claim) {
