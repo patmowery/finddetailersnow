@@ -4,7 +4,11 @@ export type ServiceType =
   | 'ppf'
   | 'paint_correction'
   | 'interior'
-  | 'mobile';
+  | 'mobile'
+  | 'tinting'
+  | 'wash'
+  | 'commercial'
+  | 'rv_boat';
 
 export type PriceRange = '$' | '$$' | '$$$' | '$$$$';
 
@@ -80,6 +84,10 @@ export const SERVICE_LABELS: Record<ServiceType, string> = {
   paint_correction: 'Paint Correction',
   interior: 'Interior Detailing',
   mobile: 'Mobile Detailing',
+  tinting: 'Window Tinting',
+  wash: 'Car Wash',
+  commercial: 'Commercial/Fleet',
+  rv_boat: 'RV & Boat Detailing',
 };
 
 export const SERVICE_COLORS: Record<ServiceType, string> = {
@@ -89,6 +97,10 @@ export const SERVICE_COLORS: Record<ServiceType, string> = {
   paint_correction: 'bg-red-100 text-red-800',
   interior: 'bg-yellow-100 text-yellow-800',
   mobile: 'bg-orange-100 text-orange-800',
+  tinting: 'bg-indigo-100 text-indigo-800',
+  wash: 'bg-cyan-100 text-cyan-800',
+  commercial: 'bg-emerald-100 text-emerald-800',
+  rv_boat: 'bg-teal-100 text-teal-800',
 };
 
 export const US_STATES: StateInfo[] = [

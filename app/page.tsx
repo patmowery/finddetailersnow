@@ -88,7 +88,7 @@ export default async function HomePage() {
             <SearchBar placeholder="Enter your city (e.g. Miami, FL)" />
           </div>
           <p className="mt-4 text-sm text-blue-300">
-            Serving <span className="font-semibold text-white">all 50 states</span> — 200+ cities covered
+            Serving <span className="font-semibold text-white">all 50 states</span> — 6,500+ cities covered
           </p>
         </div>
       </section>

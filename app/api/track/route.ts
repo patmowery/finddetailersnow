@@ -8,23 +8,26 @@ const supabase = createClient(
 
 /**
  * Lightweight page view tracker.
- * POST /api/track { path, listing_id? }
+ * POST /api/track { path, listing_id?, referrer? }
  */
 export async function POST(req: NextRequest) {
   try {
-    const { path, listing_id } = await req.json();
+    const { path, listing_id, referrer } = await req.json();
 
     if (!path) {
       return NextResponse.json({ error: 'path required' }, { status: 400 });
     }
 
-    // If tracking a listing page, update the listing's updated_at as a view signal
-    if (listing_id) {
-      await supabase
-        .from('listings')
-        .update({ updated_at: new Date().toISOString() })
-        .eq('id', listing_id);
-    }
+    // Only store listing_id if it looks like a UUID (page_views.listing_id is uuid FK)
+    const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    const safeListingId = listing_id && UUID_RE.test(listing_id) ? listing_id : null;
+
+    // Insert a page_view record
+    await supabase.from('page_views').insert({
+      path,
+      listing_id: safeListingId,
+      referrer: referrer || null,
+    });
 
     return NextResponse.json({ ok: true });
   } catch {

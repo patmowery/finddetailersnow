@@ -11,14 +11,19 @@ export default function ServiceBadges({ services, max }: ServiceBadgesProps) {
 
   return (
     <div className="flex flex-wrap gap-1.5">
-      {visible.map((svc) => (
-        <span
-          key={svc}
-          className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${SERVICE_COLORS[svc]}`}
-        >
-          {SERVICE_LABELS[svc]}
-        </span>
-      ))}
+      {visible.map((svc) => {
+        const label = SERVICE_LABELS[svc];
+        const color = SERVICE_COLORS[svc] ?? 'bg-gray-100 text-gray-600';
+        if (!label) return null; // Skip unknown service types gracefully
+        return (
+          <span
+            key={svc}
+            className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${color}`}
+          >
+            {label}
+          </span>
+        );
+      })}
       {remaining > 0 && (
         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
           +{remaining} more

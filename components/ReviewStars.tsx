@@ -38,7 +38,7 @@ export default function ReviewStars({ rating, count, size = 'md' }: ReviewStarsP
           </svg>
         );
       })}
-      {count !== undefined && (
+      {count !== undefined && count > 0 && (
         <span className={`${textSizes[size]} text-gray-500 ml-0.5`}>
           ({count.toLocaleString()})
         </span>

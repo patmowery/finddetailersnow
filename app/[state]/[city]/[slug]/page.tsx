@@ -2,11 +2,22 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { getListingBySlug, getReviewsByListing } from '@/lib/data';
-import { getStateBySlug, buildCityUrl, formatPhone, absoluteUrl } from '@/lib/utils';
+import {
+  getListingBySlug,
+  getReviewsByListing,
+  getBusinessPhotos,
+  getBusinessServices,
+  getReviewResponses,
+} from '@/lib/data';
+import { getStateBySlug, buildCityUrl, absoluteUrl } from '@/lib/utils';
 import ReviewStars from '@/components/ReviewStars';
 import ServiceBadges from '@/components/ServiceBadges';
+import ContactCard from '@/components/ContactCard';
+import PageViewTracker from '@/components/PageViewTracker';
 import { SERVICE_LABELS } from '@/types';
+
+// Revalidate every 60 seconds so profile edits show up quickly
+export const revalidate = 60;
 
 interface Props {
   params: Promise<{ state: string; city: string; slug: string }>;
@@ -33,15 +44,45 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function formatPrice(from: number | null, to: number | null) {
+  if (from == null && to == null) return null;
+  if (from != null && to != null) return `$${from}–$${to}`;
+  if (from != null) return `From $${from}`;
+  return `Up to $${to}`;
+}
+
+function formatDuration(mins: number | null) {
+  if (!mins) return null;
+  if (mins < 60) return `${mins} min`;
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return m > 0 ? `${h}h ${m}min` : `${h} hr`;
+}
+
 export default async function ListingPage({ params }: Props) {
   const { state: stateSlug, city: citySlug, slug } = await params;
   const stateInfo = getStateBySlug(stateSlug);
   if (!stateInfo) notFound();
 
   const listing = await getListingBySlug(slug).catch(() => null);
-  const reviews = listing ? await getReviewsByListing(listing.id).catch(() => []) : [];
-
   if (!listing) notFound();
+
+  const [reviews, photos, services, reviewResponses] = await Promise.all([
+    getReviewsByListing(listing.id).catch(() => []),
+    getBusinessPhotos(listing.id).catch(() => []),
+    getBusinessServices(listing.id).catch(() => []),
+    getReviewResponses(listing.id).catch(() => []),
+  ]);
+
+  // Build response map for O(1) lookup
+  const responseMap = new Map(reviewResponses.map((r) => [r.review_id, r]));
+
+  // Photos
+  const coverPhoto = photos.find((p) => p.photo_type === 'cover');
+  const logoPhoto = photos.find((p) => p.photo_type === 'logo');
+  const galleryPhotos = photos.filter((p) => p.photo_type === 'gallery');
+  const effectiveCover = coverPhoto?.url ?? listing.cover_image_url;
+  const effectiveLogo = logoPhoto?.url ?? listing.logo_url;
 
   // JSON-LD structured data
   const jsonLd = {
@@ -60,7 +101,7 @@ export default async function ListingPage({ params }: Props) {
     telephone: listing.phone,
     email: listing.email,
     url: listing.website,
-    image: listing.cover_image_url ?? listing.logo_url,
+    image: effectiveCover ?? effectiveLogo,
     aggregateRating:
       listing.review_count > 0
         ? {
@@ -76,6 +117,7 @@ export default async function ListingPage({ params }: Props) {
   };
 
   const cityUrl = buildCityUrl(listing.city, listing.state_code);
+  const currentPath = `/${stateSlug}/${citySlug}/${slug}`;
 
   return (
     <>
@@ -83,6 +125,7 @@ export default async function ListingPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <PageViewTracker path={currentPath} listingId={listing.id} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Breadcrumb */}
@@ -101,9 +144,9 @@ export default async function ListingPage({ params }: Props) {
           <div className="lg:col-span-2 space-y-6">
             {/* Cover image */}
             <div className="relative h-64 sm:h-80 bg-gradient-to-br from-[#1e3a5f] to-[#2a4d7a] rounded-2xl overflow-hidden">
-              {listing.cover_image_url && (
+              {effectiveCover && (
                 <Image
-                  src={listing.cover_image_url}
+                  src={effectiveCover}
                   alt={listing.business_name}
                   fill
                   className="object-cover"
@@ -121,10 +164,10 @@ export default async function ListingPage({ params }: Props) {
             {/* Business header */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-start gap-4">
-                {listing.logo_url && (
+                {effectiveLogo && (
                   <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-200">
                     <Image
-                      src={listing.logo_url}
+                      src={effectiveLogo}
                       alt={`${listing.business_name} logo`}
                       fill
                       className="object-contain"
@@ -179,8 +222,58 @@ export default async function ListingPage({ params }: Props) {
               </div>
             )}
 
-            {/* Services */}
-            {listing.services.length > 0 && (
+            {/* Gallery photos */}
+            {galleryPhotos.length > 0 && (
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <h2 className="text-lg font-bold text-gray-900 mb-4">Our Work</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {galleryPhotos.map((photo) => (
+                    <div key={photo.id} className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
+                      <Image
+                        src={photo.url}
+                        alt={photo.alt_text ?? `${listing.business_name} work photo`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 50vw, 33vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Services — detailed pricing if available, otherwise basic list */}
+            {services.length > 0 ? (
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <h2 className="text-lg font-bold text-gray-900 mb-4">Services & Pricing</h2>
+                <div className="divide-y divide-gray-50">
+                  {services.map((svc) => {
+                    const price = formatPrice(svc.price_from, svc.price_to);
+                    const duration = formatDuration(svc.duration_minutes);
+                    return (
+                      <div key={svc.id} className="py-3 first:pt-0 last:pb-0">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-gray-900 text-sm">{svc.service_name}</p>
+                            {svc.description && (
+                              <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">{svc.description}</p>
+                            )}
+                          </div>
+                          <div className="text-right flex-shrink-0">
+                            {price && (
+                              <p className="font-bold text-[#ff6b35] text-sm">{price}</p>
+                            )}
+                            {duration && (
+                              <p className="text-xs text-gray-400">{duration}</p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : listing.services.length > 0 ? (
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                 <h2 className="text-lg font-bold text-gray-900 mb-4">Services Offered</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -192,7 +285,7 @@ export default async function ListingPage({ params }: Props) {
                   ))}
                 </div>
               </div>
-            )}
+            ) : null}
 
             {/* Reviews */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
@@ -214,28 +307,49 @@ export default async function ListingPage({ params }: Props) {
                 <p className="text-gray-400 text-sm">No reviews yet. Be the first to review!</p>
               ) : (
                 <div className="space-y-5">
-                  {reviews.map((review) => (
-                    <div key={review.id} className="border-b border-gray-50 last:border-0 pb-5 last:pb-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-9 h-9 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                          {review.author_name[0].toUpperCase()}
+                  {reviews.map((review) => {
+                    const ownerResponse = responseMap.get(review.id);
+                    return (
+                      <div key={review.id} className="border-b border-gray-50 last:border-0 pb-5 last:pb-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-9 h-9 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                            {review.author_name[0].toUpperCase()}
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900 text-sm">{review.author_name}</p>
+                            <ReviewStars rating={review.rating} size="sm" />
+                          </div>
+                          <span className="ml-auto text-xs text-gray-400">
+                            {new Date(review.created_at).toLocaleDateString('en-US', {
+                              month: 'short',
+                              year: 'numeric',
+                            })}
+                          </span>
                         </div>
-                        <div>
-                          <p className="font-semibold text-gray-900 text-sm">{review.author_name}</p>
-                          <ReviewStars rating={review.rating} size="sm" />
-                        </div>
-                        <span className="ml-auto text-xs text-gray-400">
-                          {new Date(review.created_at).toLocaleDateString('en-US', {
-                            month: 'short',
-                            year: 'numeric',
-                          })}
-                        </span>
+                        {review.comment && (
+                          <p className="text-sm text-gray-600 leading-relaxed pl-12">{review.comment}</p>
+                        )}
+                        {/* Owner response */}
+                        {ownerResponse && (
+                          <div className="ml-12 mt-3 bg-blue-50 border border-blue-100 rounded-xl p-3">
+                            <p className="text-xs font-semibold text-[#1e3a5f] mb-1">
+                              Response from the owner
+                            </p>
+                            <p className="text-sm text-gray-700 leading-relaxed">
+                              {ownerResponse.response_text}
+                            </p>
+                            <p className="text-xs text-gray-400 mt-1">
+                              {new Date(ownerResponse.responded_at).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                              })}
+                            </p>
+                          </div>
+                        )}
                       </div>
-                      {review.comment && (
-                        <p className="text-sm text-gray-600 leading-relaxed pl-12">{review.comment}</p>
-                      )}
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -243,79 +357,7 @@ export default async function ListingPage({ params }: Props) {
 
           {/* Sidebar */}
           <div className="space-y-5">
-            {/* Contact card */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 sticky top-4">
-              <h3 className="font-bold text-gray-900 mb-4">Contact</h3>
-              <div className="space-y-3">
-                {listing.phone && (
-                  <a
-                    href={`tel:${listing.phone}`}
-                    className="flex items-center gap-3 text-gray-700 hover:text-[#1e3a5f] transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 group-hover:bg-[#1e3a5f] flex items-center justify-center transition-colors">
-                      <svg className="w-4 h-4 text-[#1e3a5f] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                    </div>
-                    <span className="font-medium">{formatPhone(listing.phone)}</span>
-                  </a>
-                )}
-
-                {listing.email && (
-                  <a
-                    href={`mailto:${listing.email}`}
-                    className="flex items-center gap-3 text-gray-700 hover:text-[#1e3a5f] transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 group-hover:bg-[#1e3a5f] flex items-center justify-center transition-colors">
-                      <svg className="w-4 h-4 text-[#1e3a5f] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <span className="font-medium truncate">{listing.email}</span>
-                  </a>
-                )}
-
-                {listing.website && (
-                  <a
-                    href={listing.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-[#1e3a5f] transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 group-hover:bg-[#1e3a5f] flex items-center justify-center transition-colors">
-                      <svg className="w-4 h-4 text-[#1e3a5f] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                      </svg>
-                    </div>
-                    <span className="font-medium truncate">Visit Website</span>
-                  </a>
-                )}
-
-                {listing.address && (
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(`${listing.address}, ${listing.city}, ${listing.state_code}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-700 hover:text-[#1e3a5f] transition-colors group"
-                  >
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 group-hover:bg-[#1e3a5f] flex items-center justify-center transition-colors">
-                      <svg className="w-4 h-4 text-[#1e3a5f] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <span className="font-medium text-sm">{listing.address}, {listing.city}</span>
-                  </a>
-                )}
-              </div>
-
-              {/* Services badges */}
-              {listing.services.length > 0 && (
-                <div className="mt-5 pt-5 border-t border-gray-100">
-                  <ServiceBadges services={listing.services} />
-                </div>
-              )}
-            </div>
+            <ContactCard listing={{ ...listing, logo_url: effectiveLogo, cover_image_url: effectiveCover }} />
           </div>
         </div>
       </div>

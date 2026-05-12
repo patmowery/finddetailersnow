@@ -8,6 +8,9 @@ import ListingCard from '@/components/ListingCard';
 import FilterSidebar from '@/components/FilterSidebar';
 import type { ServiceType } from '@/types';
 
+// Revalidate every 60 seconds so profile edits show up quickly
+export const revalidate = 60;
+
 interface Props {
   params: Promise<{ state: string; city: string }>;
   searchParams: Promise<{

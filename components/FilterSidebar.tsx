@@ -11,6 +11,8 @@ const SERVICES: ServiceType[] = [
   'paint_correction',
   'interior',
   'mobile',
+  'tinting',
+  'wash',
 ];
 
 const PRICE_RANGES = ['$', '$$', '$$$', '$$$$'];
