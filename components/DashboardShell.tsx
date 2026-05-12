@@ -75,11 +75,12 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
   const [auth, setAuth] = useState<DashboardAuth | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Login page renders standalone — no shell wrapper
   const isLoginPage = pathname === '/dashboard/login';
-  if (isLoginPage) return <>{children}</>;
 
   useEffect(() => {
+    // Login page doesn't need auth
+    if (isLoginPage) return;
+
     const urlListing = searchParams.get('listing');
     const urlEmail = searchParams.get('email');
 
@@ -99,7 +100,10 @@ function DashboardShellInner({ children }: { children: React.ReactNode }) {
         }
       } catch {}
     }
-  }, [searchParams]);
+  }, [searchParams, isLoginPage]);
+
+  // Login page renders standalone — no shell wrapper
+  if (isLoginPage) return <>{children}</>;
 
   if (!auth) {
     return (
