@@ -104,16 +104,57 @@ function applyProfile(listing: Listing, profile: Record<string, unknown>): Listi
   return merged;
 }
 
+// ── Google ratings overlay ────────────────────────────────────────────────────
+
+let googleRatingsCache: Map<string, { rating: number; count: number }> | null = null;
+let googleRatingsCacheTime = 0;
+
+async function getGoogleRatings(): Promise<Map<string, { rating: number; count: number }>> {
+  const now = Date.now();
+  if (googleRatingsCache && now - googleRatingsCacheTime < CACHE_TTL_MS) {
+    return googleRatingsCache;
+  }
+  if (!supabase) return new Map();
+  try {
+    const { data, error } = await supabase
+      .from('google_place_ids')
+      .select('listing_id, google_rating, google_review_count')
+      .not('google_rating', 'is', null);
+    if (error || !data) return googleRatingsCache ?? new Map();
+    const map = new Map<string, { rating: number; count: number }>();
+    for (const r of data) {
+      if (r.listing_id && r.google_rating != null) {
+        map.set(r.listing_id, { rating: Number(r.google_rating), count: r.google_review_count ?? 0 });
+      }
+    }
+    googleRatingsCache = map;
+    googleRatingsCacheTime = now;
+    return map;
+  } catch {
+    return googleRatingsCache ?? new Map();
+  }
+}
+
 /**
- * Get all listings with Supabase profile overrides applied.
+ * Get all listings with Supabase profile overrides + Google ratings applied.
  */
 async function getAllListingsWithProfiles(): Promise<Listing[]> {
-  const profiles = await getBusinessProfiles();
-  if (profiles.size === 0) return ALL_LISTINGS;
+  const [profiles, gRatings] = await Promise.all([
+    getBusinessProfiles(),
+    getGoogleRatings(),
+  ]);
+
+  if (profiles.size === 0 && gRatings.size === 0) return ALL_LISTINGS;
 
   return ALL_LISTINGS.map(listing => {
+    let merged = listing;
     const profile = profiles.get(listing.id);
-    return profile ? applyProfile(listing, profile) : listing;
+    if (profile) merged = applyProfile(merged, profile);
+    const gr = gRatings.get(listing.id);
+    if (gr) {
+      merged = { ...merged, rating: gr.rating, review_count: gr.count };
+    }
+    return merged;
   });
 }
 
@@ -335,5 +376,58 @@ export async function getReviewResponses(listingId: string): Promise<ReviewRespo
     return (data ?? []) as ReviewResponse[];
   } catch {
     return [];
+  }
+}
+
+// ── Google Reviews ─────────────────────────────────────────────────────────────
+
+export interface GoogleReview {
+  id: string;
+  listing_id: string;
+  place_id: string | null;
+  author_name: string;
+  author_url: string | null;
+  profile_photo_url: string | null;
+  rating: number;
+  text: string | null;
+  relative_time: string | null;
+  review_time: number | null;
+  language: string;
+}
+
+export interface GooglePlaceInfo {
+  place_id: string | null;
+  google_name: string | null;
+  google_rating: number | null;
+  google_review_count: number | null;
+}
+
+export async function getGoogleReviews(listingId: string): Promise<GoogleReview[]> {
+  if (!supabase) return [];
+  try {
+    const { data, error } = await supabase
+      .from('google_reviews')
+      .select('*')
+      .eq('listing_id', listingId)
+      .order('review_time', { ascending: false });
+    if (error) return [];
+    return (data ?? []) as GoogleReview[];
+  } catch {
+    return [];
+  }
+}
+
+export async function getGooglePlaceInfo(listingId: string): Promise<GooglePlaceInfo | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await supabase
+      .from('google_place_ids')
+      .select('place_id, google_name, google_rating, google_review_count')
+      .eq('listing_id', listingId)
+      .single();
+    if (error) return null;
+    return data as GooglePlaceInfo;
+  } catch {
+    return null;
   }
 }
