@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!stateInfo) return {};
 
   return {
-    title: `Auto Detailers in ${stateInfo.name} | FindDetailersNow`,
+    title: `Auto Detailers in ${stateInfo.name}`,
     description: `Find the best auto detailers, ceramic coating specialists, and PPF installers across ${stateInfo.name}. Browse by city.`,
     alternates: {
       canonical: `/${stateSlug}`,

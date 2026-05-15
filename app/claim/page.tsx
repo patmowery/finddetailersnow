@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ClaimForm from '@/components/ClaimForm';
 
 export const metadata: Metadata = {
-  title: 'Claim Your Business Listing | FindDetailersNow',
+  title: 'Claim Your Business Listing',
   description:
     'Are you an auto detailing business owner? Claim your free listing on FindDetailersNow and get found by customers in your area.',
   alternates: { canonical: '/claim' },

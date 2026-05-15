@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getAllBlogPosts } from '@/data/blog-posts';
 
 export const metadata: Metadata = {
-  title: 'Auto Detailing Blog | FindDetailersNow',
+  title: 'Auto Detailing Blog',
   description:
     'Tips, guides, and industry insights for auto detailing, ceramic coating, PPF, and keeping your car looking its best.',
   alternates: { canonical: '/blog' },

@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const cityName = toTitleCase(citySlug);
 
   return {
-    title: `Best Auto Detailing in ${cityName}, ${stateInfo.code} (${YEAR}) | FindDetailersNow`,
+    title: `Best Auto Detailing in ${cityName}, ${stateInfo.code} (${YEAR})`,
     description: `Find the ${YEAR} best auto detailers in ${cityName}, ${stateInfo.name}. Compare ceramic coating, PPF, paint correction & mobile detailing pros. Read reviews, get quotes.`,
     alternates: {
       canonical: `https://finddetailersnow.com/${stateSlug}/${citySlug}`,

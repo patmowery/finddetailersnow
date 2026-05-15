@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About FindDetailersNow',
+  title: 'About Us',
   description:
     'Learn about FindDetailersNow — our mission to connect car owners with the best auto detailers, ceramic coating specialists, and PPF installers across the US.',
   alternates: { canonical: '/about' },

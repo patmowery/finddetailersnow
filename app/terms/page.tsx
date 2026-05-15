@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | FindDetailersNow',
+  title: 'Terms of Service',
   description: 'FindDetailersNow Terms of Service — rules and guidelines for using our platform.',
   alternates: { canonical: '/terms' },
 };

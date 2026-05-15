@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { US_STATES } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'Auto Detailers by State | FindDetailersNow',
+  title: 'Auto Detailers by State',
   description:
     'Browse auto detailers, ceramic coating shops, and PPF installers across all 50 US states. Find the best detailers in your state.',
   alternates: { canonical: '/states' },
