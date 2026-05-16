@@ -359,10 +359,296 @@ Budget at minimum $200–$500 for a proper new car detail and sealant within the
 [Find a new car protection specialist near you →](/states)
 `,
   },
+  {
+    slug: 'how-much-does-car-detailing-cost',
+    title: 'How Much Does Car Detailing Cost? (2026 Price Guide)',
+    excerpt: 'From a basic wash to full paint correction, here is what car detailing actually costs — and what you get for your money.',
+    date: 'May 16, 2026',
+    category: 'Pricing',
+    readTime: '6 min read',
+    metaDescription: 'How much does car detailing cost in 2026? Full price breakdown for basic, interior, exterior, and full detail packages by vehicle size.',
+    content: `
+## The Short Answer
+
+Car detailing costs **$50–$300 for most vehicles**, depending on the service level, your location, and the size of your car. A basic exterior detail runs $50–$100. A full interior + exterior detail runs $150–$300. Specialty services like ceramic coating or paint correction can run $500–$2,500+.
+
+## Price Breakdown by Service Type
+
+| Service | What's Included | Typical Cost |
+|---------|----------------|-------------|
+| Basic Wash & Vac | Hand wash, vacuum, windows | $50–$100 |
+| Interior Detail | Deep vacuum, shampoo seats/carpet, wipe surfaces, clean glass | $100–$200 |
+| Exterior Detail | Hand wash, clay bar, polish, wax or sealant | $100–$200 |
+| Full Detail | Interior + exterior combined | $150–$300 |
+| Paint Correction | Remove swirls, scratches, oxidation — 1 or 2 stage | $300–$800 |
+| Ceramic Coating | Long-lasting paint protection, hydrophobic finish | $500–$2,000 |
+| Paint Protection Film | Physical barrier against chips and scratches | $1,500–$7,000+ |
+
+## Price by Vehicle Size
+
+Most detailers charge more for larger vehicles. Expect to pay 20–40% more for SUVs, trucks, and vans compared to sedans.
+
+| Vehicle Type | Basic Detail | Full Detail |
+|-------------|-------------|------------|
+| Compact / Sedan | $50–$100 | $150–$225 |
+| Midsize Sedan / Coupe | $75–$125 | $175–$275 |
+| SUV / Crossover | $100–$150 | $200–$300 |
+| Full-Size SUV / Truck | $125–$175 | $225–$350 |
+| Van / Large Truck | $150–$200 | $250–$400 |
+
+## What Affects the Price?
+
+### 1. Condition of the Vehicle
+A car that hasn't been detailed in 2 years will cost more than one detailed last month. Heavy pet hair, stains, or mold add time — and time adds cost. Many detailers charge a **condition surcharge of $25–$100** for heavily soiled vehicles.
+
+### 2. Your Location
+Detailing in New York City or San Francisco costs 30–50% more than in rural areas. Labor costs, overhead, and demand all factor in. Use FindDetailersNow to compare local pricing.
+
+### 3. Mobile vs. Shop
+**Mobile detailers** come to you — your driveway, office parking lot, wherever. They often charge similar rates to shops but save you the drop-off hassle. Some charge a small travel fee ($10–$25) for locations outside their service area.
+
+**Shop-based detailers** have more equipment for heavy jobs like paint correction or ceramic coating. They're the better choice for high-end work.
+
+### 4. Add-On Services
+Common add-ons and their typical costs:
+- Engine bay cleaning: $50–$100
+- Headlight restoration: $50–$100
+- Odor elimination / ozone treatment: $50–$150
+- Leather conditioning: $30–$75
+- Tire dressing: $15–$30
+
+## Is It Worth It?
+
+**Yes — for most people, absolutely.** A full detail before selling a car can add $500–$2,000 to the sale price. Regular detailing (2–4 times per year) protects your paint, preserves interior materials, and keeps your vehicle worth more at trade-in.
+
+For daily drivers: a basic detail every 3 months ($75–$125) keeps the car clean and protects the surfaces. Budget $300–$500/year and your car will look great and hold its value.
+
+## How to Find the Best Price Near You
+
+Don't just call one shop. Get 2–3 quotes for the same service, especially for paint correction or ceramic coating. Prices vary wildly between detailers for the same quality of work.
+
+[Search for detailers in your city on FindDetailersNow](/states) to compare local options and read reviews before booking.
+`,
+  },
+  {
+    slug: 'car-detailing-vs-car-wash',
+    title: "Car Detailing vs. Car Wash: What's the Difference?",
+    excerpt: 'A car wash gets your car clean. Detailing restores and protects it. Here is exactly what each includes — and when to choose which.',
+    date: 'May 16, 2026',
+    category: 'Basics',
+    readTime: '5 min read',
+    metaDescription: 'Car detailing vs car wash — what is the difference? Learn what each service includes, how much they cost, and when to choose detailing over a car wash.',
+    content: `
+## The Core Difference
+
+A **car wash** cleans the surface of your car — it removes dirt, dust, and grime. It takes 5–30 minutes and costs $5–$30.
+
+**Car detailing** cleans, restores, and protects every surface of your vehicle — inside and out, down to the smallest crevice. It takes 2–8 hours and costs $100–$300+.
+
+Think of it this way: a car wash is a shower. Detailing is a spa day.
+
+## What a Car Wash Includes
+
+| Type | What It Does | Time | Cost |
+|------|-------------|------|------|
+| Automatic tunnel wash | Exterior rinse and soap, machine brushes or touchless | 5–10 min | $5–$25 |
+| Self-serve bay | You spray and scrub the exterior yourself | 10–20 min | $5–$15 |
+| Hand wash | Attendants hand-wash the exterior | 15–30 min | $15–$30 |
+
+A car wash gets the outside clean. Most do not touch the interior beyond a quick vacuum option.
+
+## What Car Detailing Includes
+
+### Interior Detailing
+- Deep vacuum of all surfaces, seats, and carpet
+- Shampoo and steam clean fabric seats and carpet
+- Clean and condition leather (if applicable)
+- Wipe down all hard surfaces — dash, door panels, console
+- Clean air vents, cup holders, and tight spaces
+- Clean all glass interior surfaces
+- Deodorize / odor treatment
+
+### Exterior Detailing
+- Hand wash and rinse
+- Clay bar treatment (removes bonded contaminants automatic washes miss)
+- Polish (removes minor scratches and swirl marks)
+- Wax or paint sealant for protection
+- Dress tires and trim
+- Clean wheels and wheel wells
+- Clean all glass exterior surfaces
+
+## Key Differences at a Glance
+
+| | Car Wash | Car Detailing |
+|--|----------|---------------|
+| Interior cleaned | Basic vacuum only | Deep clean, shampoo, condition |
+| Paint protection | None | Wax or sealant applied |
+| Scratch removal | None | Yes (polish stage) |
+| Contaminant removal | Partial | Full (clay bar) |
+| Time | 5–30 min | 2–8 hours |
+| Cost | $5–$30 | $100–$300+ |
+| How often | Weekly–monthly | Every 3–6 months |
+
+## When to Get a Car Wash
+
+- After driving on salty winter roads
+- After rain or mud
+- Quick clean before a meeting or event
+- Regular maintenance between details
+
+## When to Get Your Car Detailed
+
+- Before selling or trading in your vehicle
+- After buying a used car
+- Spring and fall seasonal maintenance
+- Before a road trip
+- When the interior has stains, pet hair, or odors
+- When the paint looks dull, hazy, or has swirl marks
+- Once or twice a year as part of regular vehicle care
+
+## The Bottom Line
+
+You need both — they serve different purposes. Use regular car washes to keep up with surface dirt. Schedule a professional detail 2–4 times per year to protect your investment and keep the car looking its best.
+
+A well-maintained car that gets detailed regularly holds significantly more resale value than one that only sees a $10 tunnel wash. For a car worth $20,000–$40,000, spending $300–$600/year on detailing is one of the highest-ROI maintenance decisions you can make.
+
+[Find a detailer near you](/states) to book your next detail.
+`,
+  },
+  {
+    slug: 'how-to-detail-your-car-at-home',
+    title: 'How to Detail Your Car at Home: A Step-by-Step Guide',
+    excerpt: 'Professional results are possible at home with the right products and process. Here is exactly how to detail your car yourself.',
+    date: 'May 16, 2026',
+    category: 'DIY',
+    readTime: '8 min read',
+    metaDescription: 'Learn how to detail your car at home step by step. Covers interior cleaning, exterior wash, clay bar, polishing, and waxing with product recommendations.',
+    content: `
+## Can You Really Detail Your Own Car?
+
+Yes — with the right products and process, you can get results that rival a professional detail. It takes 3–5 hours and $50–$150 in supplies (which last for many details). Once you have the setup, each detail costs almost nothing.
+
+This guide covers a full detail: interior first, then exterior.
+
+## What You'll Need
+
+### Interior Supplies
+- Vacuum with attachments
+- Microfiber towels (at least 6–10)
+- Interior cleaner / all-purpose cleaner (APC)
+- Carpet and upholstery shampoo
+- Foam brush or detailing brushes
+- Glass cleaner
+- Leather conditioner (if you have leather seats)
+
+### Exterior Supplies
+- Two buckets (wash + rinse method)
+- Car wash soap (NOT dish soap)
+- Wash mitt or microfiber wash pad
+- Clay bar kit
+- Polish (optional, for swirl removal)
+- Car wax or paint sealant
+- Wheel cleaner
+- Tire dressing
+- Microfiber drying towel
+
+## Step 1: Start with the Interior
+
+Always do interior before exterior — you'll be moving in and out of the car and don't want to scratch clean paint.
+
+### 1a. Remove Everything
+Take out floor mats, trash, and personal items. Remove car seats if you have kids.
+
+### 1b. Vacuum Everything
+Vacuum seats, carpet, floor mats, trunk, and all crevices. Use the brush attachment on the dash and vents. Get under the seats.
+
+### 1c. Clean Hard Surfaces
+Spray APC on a microfiber towel (not directly on surfaces) and wipe down the dashboard, door panels, center console, and steering wheel. Use a detailing brush for vents and tight spots.
+
+### 1d. Shampoo Carpet and Fabric Seats
+Spray carpet shampoo, agitate with a brush, then blot (don't scrub) with a clean microfiber. For heavy stains, let the product dwell for 5 minutes first. Let everything dry fully — use a fan or leave windows down.
+
+### 1e. Condition Leather (If Applicable)
+Clean leather with a dedicated leather cleaner first, then apply conditioner. This prevents cracking and keeps the leather supple.
+
+### 1f. Clean Interior Glass
+Use a dedicated glass cleaner and a clean microfiber. Two-pass method: first pass removes dirt, second pass removes streaks. Use circular motions.
+
+## Step 2: Exterior Wash
+
+### 2a. Rinse the Car
+Start with a thorough rinse top to bottom. This removes loose dirt so you're not grinding it into the paint with your wash mitt.
+
+### 2b. Two-Bucket Wash Method
+Fill one bucket with soapy water, one with clean rinse water. Wash with the mitt, rinse the mitt in the clean bucket before reloading soap. This keeps dirt out of your wash water.
+
+Wash top to bottom. The lower panels are dirtiest — do them last.
+
+### 2c. Wheels and Wheel Wells
+Use a dedicated wheel cleaner and a wheel brush. Clean wheels before the paint — overspray from wheel cleaner is caustic. Rinse thoroughly.
+
+### 2d. Dry Immediately
+Don't let the car air dry — it leaves water spots. Use a large microfiber drying towel and pat-dry or drag gently across panels. Start with the roof and work down.
+
+## Step 3: Clay Bar Treatment
+
+Run your fingertip over the paint after washing. If it feels rough or gritty, you need a clay bar. Clay removes bonded contaminants (industrial fallout, tree sap residue, overspray) that washing can't touch.
+
+**How to use:**
+1. Spray clay lubricant on a small section (2x2 ft)
+2. Glide the clay bar back and forth with light pressure
+3. Keep the surface wet with lubricant — never use clay dry
+4. Fold the clay to a clean surface when it gets dirty
+5. Wipe off residue with a microfiber
+
+After claying, the paint should feel glass-smooth.
+
+## Step 4: Polish (Optional)
+
+If your paint has swirl marks, light scratches, or oxidation (dull, hazy look), polishing removes them. You can polish by hand or with a dual-action (DA) polisher.
+
+- **Hand polishing:** Works for minor swirls. Apply polish with an applicator pad, work in small sections, wipe off with microfiber.
+- **DA polisher:** Much more effective. Use a foam cutting pad for heavier correction, finishing pad for light work. Start at speed 3–4, work in overlapping passes.
+
+Polishing removes a tiny layer of clear coat — don't do it more than 1–2 times per year.
+
+## Step 5: Wax or Sealant
+
+Protect all that clean, smooth paint.
+
+- **Carnauba wax:** Warm, deep shine. Lasts 4–8 weeks. Great for show cars.
+- **Paint sealant:** Synthetic protection. Lasts 3–6 months. Better for daily drivers.
+- **Spray wax:** Quick and easy. Lasts 4–6 weeks. Great for maintenance between full details.
+
+Apply in thin layers, let haze, then buff off with a clean microfiber. Work in the shade — direct sun makes wax hard to remove.
+
+## Step 6: Dress Tires and Trim
+
+Apply tire dressing to the sidewalls for that deep black look. Use a trim restorer on faded plastic trim. Both protect against UV damage.
+
+## How Long Will It Take?
+
+| Detail Level | Time Estimate |
+|-------------|---------------|
+| Interior only | 1–2 hours |
+| Exterior wash + wax | 1.5–2 hours |
+| Full detail (interior + exterior) | 3–5 hours |
+| Full detail + clay bar + polish | 5–8 hours |
+
+## When to Go Pro Instead
+
+DIY detailing is great for maintenance, but some jobs need professional equipment:
+- **Paint correction** (deep scratches, heavy oxidation) — requires a machine polisher and experience
+- **Ceramic coating** — requires professional prep and application
+- **Mold or severe odor** — professional ozone treatment is far more effective
+
+[Find a professional detailer near you](/states) when the job is beyond DIY.
+`,
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
+  return BLOG_POSTS.find((post) => post.slug === slug);
 }
 
 export function getAllBlogPosts(): BlogPost[] {
